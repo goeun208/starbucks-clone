@@ -8,6 +8,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '576px',
+        // => @media (min-width: 576px) { ... }
+  
+        'md': '960px',
+        // => @media (min-width: 960px) { ... }
+  
+        'lg': '1440px',
+        // => @media (min-width: 1440px) { ... }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -16,21 +26,26 @@ module.exports = {
       keyframes: {
         dropdown: {
           '0%': {maxHeight: '0'},
-          '100%': {maxHeight: '20rem'},
+          '100%': {maxHeight: '30rem'},
         },
         firstBanner: {
           '0%': {backgroundColor: 'none'},
-          '100%': {backgroundColor: '#014938', color: "white"},
+          '100%': {backgroundColor: '#014938'},
         },
         secondBanner: {
           '0%': {backgroundColor: 'none'},
-          '100%': {backgroundColor: '#e54360', fontColor: "white"},
+          '100%': {backgroundColor: '#e54360'},
+        },
+        whiteButton: {
+          '0%': {backgroundColor: 'none'},
+          '100%': {backgroundColor: '#fff'},
         },
       },
       animation: {
         dropdown: 'dropdown 0.5s ease-in-out forwards',
         firstBanner: 'firstBanner 0.5s ease-out forwards',
         secondBanner: 'secondBanner 0.5s ease-out forwards',
+        whiteButton: 'whiteButton 0.5s ease-out forwards'
       },
     },
     },

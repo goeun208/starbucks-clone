@@ -15,10 +15,8 @@ const MobileHeader = () => {
         
         return (
             <>
-            
               <div className="md:hidden block w-full h-full flex items-center relative">
                     <div className=" w-full h-full flex items-center absolute top-0 left-2">
-                        
                         <Image
                             src="https://www.starbucks.co.kr/common/img/common/logo.png"
                             alt="로고"
@@ -29,11 +27,11 @@ const MobileHeader = () => {
                         />
                     </div>
                     {/* 네비게이션 바 */}
-                    <div className="absolute top-0 right-0 z-40">
-                    {isOpen && <MobileMenu/>}
-                    </div>
+                   
                     <nav className="absolute top-0 right-0">
-                    {isOpen && <MobileMenu handleNav={handleNav} />}
+                        <div className="absolute top-0 right-0 z-40">
+                            {isOpen && <MobileMenu handleNav={handleNav}/>}
+                        </div>
                         <ul className="w-[120px] h-[60px] pt-[10px] flex justify-between items-center absolute top-0 right-2">
                             <li className="relative">
                                 <Image
@@ -68,7 +66,7 @@ const MobileHeader = () => {
                         </ul>
                     </nav>
                     {/* 고정 프로모션 뱃지 */}
-                    <div className='absolute w-[25%] top-[108px] right-2 z-30'>
+                    <div className='fixed w-[25%] top-[108px] right-2 z-30'>
                         <Image
                             src="/images/promotion_image_hyundai.png"
                             alt="promotion_logo_hyundai"
@@ -77,8 +75,6 @@ const MobileHeader = () => {
                             sizes='100vw'
                             className='w-full h-auto'
                         />
-                    </div>
-                    <div className='absolute w-[25%] top-[228px] right-2 z-30'>
                         <Image
                             src="/images/promotion_image_corporate.png"
                             alt="promotion_logo_corporate"
@@ -88,6 +84,7 @@ const MobileHeader = () => {
                             className='w-full h-auto'
                         />
                     </div>
+                    
                 </div>
             </>
               

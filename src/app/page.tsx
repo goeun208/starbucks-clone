@@ -1,5 +1,6 @@
 import FavoriteMenuBox from '@/components/FavoriteMenuBox'
 import Header from '@/components/Header'
+import MainBanner from '@/components/MainBanner'
 import NoticeBar from '@/components/NoticeBar'
 import PromotionSlider from '@/components/PromotionSlider'
 import ReserveBox from '@/components/ReserveBox'
@@ -12,9 +13,9 @@ export default function Home() {
       <Header />
       
       <main className='pt-[70px] md:pt-[7.5rem]'>
-        <PromotionSlider />
+        <MainBanner />
         <NoticeBar />
-        {/* <RewardsBox /> */}
+        <RewardsBox />
         <SpringBlendBox />
         <ReserveBox />
         {/* <FavoriteMenuBox /> */}

@@ -40,12 +40,17 @@ module.exports = {
           '0%': {backgroundColor: 'none'},
           '100%': {backgroundColor: '#fff'},
         },
+        dropDownButton: {
+          '0%': {transform: 'rotate(0)'},
+          '100%': {transform: 'rotate(180deg)'},
+        },
       },
       animation: {
         dropdown: 'dropdown 0.5s ease-in-out forwards',
         firstBanner: 'firstBanner 0.5s ease-out forwards',
         secondBanner: 'secondBanner 0.5s ease-out forwards',
-        whiteButton: 'whiteButton 0.5s ease-out forwards'
+        whiteButton: 'whiteButton 0.5s ease-out forwards',
+        dropDownButton: 'dropDownButton 0.5s ease-out forwards'
       },
     },
     },

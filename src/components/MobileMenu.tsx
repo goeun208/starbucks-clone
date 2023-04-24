@@ -1,74 +1,137 @@
+"use client";
 import Image from "next/image";
 import { DropdownData } from "../../public/DropdownData";
+import { useEffect, useState } from "react";
+
+const MyStarbucks = {
+    dropTitle: "My Starbucks",
+    dropDownMenu: [
+        {
+            menu: ["My 리워드", "리워드 및 혜택", "별 히스토리"],
+        },
+        {
+            menu: ["My 스타벅스 카드", "보유 카드", "카드 등록", "카드 충전", "분실신고/잔액이전"],
+        },
+        {
+            menu: ["My 스타벅스 e-Gift Card", "선물하기", "선물 내역", "장바구니 내역"],
+        },
+        {
+            menu: ["My 쿠폰", "등록하기", "선물하기", "사용하기"],
+        },
+        {
+            menu: ["My 캘린더"]
+        }
+    ]
+}
 
 const MobileMenu = ({ handleNav }: any) => {
+    const MobileArray = [MyStarbucks, ...DropdownData];
+    const [menuIdx, setMenuIdx] = useState<number>(0);
+    const [innerMenuIdx, setInnerMenuIdx] = useState<number>(0);
+
+    const handleMenuIdx = (n: number) => {
+        setMenuIdx(n);
+    }
+
+    const handleInnerMenuIdx = (n: number) => {
+        console.log(n);
+        setInnerMenuIdx(n);
+    }
+
+    useEffect(() => {
+        const li = document.querySelector('#mobile_menu_box')!!.children[menuIdx] as HTMLElement;
+        console.log(li);
+        li.style.maxHeight = "50rem";
+        console.log(menuIdx);
+    }, [menuIdx]);
+
+    useEffect(() => {
+        const li = document.querySelector('#mobile_inner_menu_box')!!.children[innerMenuIdx] as HTMLElement;
+        console.log(li);
+        li.style.maxHeight = "50rem";
+        console.log(innerMenuIdx);
+    }, [innerMenuIdx]);
+
     return (
-        <div className=" w-[100vw] flex">
+        <div className="flex">
             {/* 뒤 투명 배경 */}
-            <div className=" w-[50vw] h-[150vh] bg-black opacity-70"></div> 
+            <div className=" w-[50vw] h-[150vh] bg-black opacity-70"></div>
             {/* 메뉴 박스 */}
-            <div className="  w-[65vw] h-[150vh] absoulte bg-[#111111] bottom-0">
+            <div className="  w-[65vw] h-[150vh] absoulte bg-[#111111] bottom-0 overflow-auto">
                 <div className="w-full h-[10vh] bg-[#2d2926] flex items-center justify-center relative">
-                <button type="button" className="hover:animate-dropDownButton w-8 h-8 absolute top-10 -left-[4rem] z-30" onClick={handleNav}>
-                    <Image
-                        src="/images/btn_gnb_close.png"
-                        alt="promotion_logo_hyundai"
-                        width={0}
-                        height={0}
-                        sizes='100vw'
-                        className='w-full h-auto'
-                    />
-                </button>
+                    <button type="button" className="w-8 h-8 absolute top-10 -left-[4rem] z-30" onClick={handleNav}>
+                        <Image
+                            src="/images/btn_gnb_close.png"
+                            alt="promotion_logo_hyundai"
+                            width={0}
+                            height={0}
+                            sizes='100vw'
+                            className='w-full h-auto'
+                        />
+                    </button>
                     <input type="text" className="w-[60%] h-[50px] bg-white pl-2 rounded-[3px]" />
                     <div className="ml-3 w-[25%] h-[50px] bg-[#666] rounded-[3px] flex items-center justify-center text-white text-[1.5rem] font-medium">Search</div>
                 </div>
-                {/* My starbucks */}
-                <div className="w-full h-[7vh] flex items-center bg-[#2d2926] text-[1.75rem] border-y border-[#333]">
-                    <ul>
-                        <li>
-                            <p className='px-[1rem] hover:underlinetext-[1.75rem] flex items-center font-medium text-white hover:underline'>My Starbucks</p>
-                        </li>
-                    </ul>
-                </div>
-                {/* coffee ~ what's new */}
+                {/* My starbucks ~ what's new */}
                 <nav className='text-xl bg-[#111]'>
-                    <div className=''>
-                        <ul className="flex flex-col cursor-pointer font-normal">
-                            {DropdownData.map((dropdown, index: number) => (
-                                <li key={index} className='group/gnb'>
-                                    
+                    <div>
+                        <ul className="flex flex-col cursor-pointer font-normal" id="mobile_menu_box">
+                            {MobileArray.map((dropdown, index: number) => (
+                                <li key={index} className='group/gnb' onClick={() => handleMenuIdx(index)}>
                                     <div className="flex justify-between items-center border-b border-[#333] px-[1rem]">
-                                        <p className='group-hover/gnb:underline h-[5rem] text-[1.75rem] flex items-center font-medium text-white'>{dropdown.dropTitle}</p>
-                                        <Image
-                                           src="/images/mob_gnb_arrow_down_w.png"
-                                           alt="arrow"
-                                           width={20}
-                                           height={20}
-                                        />
+                                        <p className='hover:underline h-[5rem] text-[1.75rem] flex items-center font-medium text-white'>{dropdown.dropTitle}</p>
+
+                                        {
+                                            index === menuIdx ?
+                                                (
+                                                    <Image src="/images/mob_gnb_arrow_up_g.png" alt="arrow" width={20} height={20} />
+                                                ) : (
+                                                    <Image src="/images/mob_gnb_arrow_down_w.png" alt="arrow" width={20} height={20} />
+                                                )
+                                        }
                                     </div>
-                                    <div className='overflow-hidden hidden group-hover/gnb:block group-hover/gnb:animate-dropdown group-hover/gnb:text-[#669900] bg-[#2c2a29] w-full'>
-                                        <div className='flex flex-col mx-auto py-2'>
-                                            {dropdown.dropDownMenu.map((menus, menus_idx: number) => (
-                                                <ul className='' key={menus_idx}>
-                                                    {menus.menu.map((item: string, idx: number) => (
-                                                        idx === 0 &&
-                                                        <li className='px-[1.3rem] py-5 text-[#999999] hover:underline' key={idx}>
-                                                            <span className="peer">{item}</span>
-                                                            <div className="overflow-hidden hidden peer-hover:block peer-hover:animate-dropdown">
-                                                                <ul >
-                                                                    {menus.menu.map((item: string, idx: number) => (
-                                                                        idx !== 0 && <li key={idx}>{item}</li>
-                                                                    ))}
-                                                                </ul>
-                                                            </div>
-                                                        </li>
+                                    {
+                                        index === menuIdx && (
+                                            <div className='text-white text-[1.5rem] bg-[#181818] w-full'>
+                                                <div className='flex flex-col mx-auto' id="mobile_inner_menu_box">
+                                                    {dropdown.dropDownMenu.map((menus, menus_idx: number) => (
+                                                        <ul key={menus_idx}>
+                                                            {menus.menu.map((title: string, idx: number) => (
+                                                                idx === 0 &&
+                                                                <li className='text-[#999999] border-b border-[#333] text-[18px]' key={idx} >
+                                                                    <div className="flex px-[1.3rem] py-5 justify-between items-center border-b border-[#333]" onClick={() => handleInnerMenuIdx(menus_idx)}>
+                                                                        <span>{title}</span>
+                                                                        {
+                                                                            idx === innerMenuIdx ?
+                                                                            (
+                                                                                <Image src="/images/mob_gnb_arrow_up_g.png" alt="arrow" width={20} height={20} />
+                                                                            ) : (
+                                                                                <Image src="/images/mob_gnb_arrow_down_w.png" alt="arrow" width={20} height={20} />
+                                                                            )
+                                                                        }
+                                                                    </div>
+                                                                    {
+                                                                        menus_idx === innerMenuIdx && (
+                                                                            <div>
+                                                                                <ul className="bg-[#222]">
+                                                                                    {menus.menu.map((item: string, idx: number) => (
+                                                                                        idx !== 0 && <li key={idx} className="px-[1.3rem] py-2 text-base text-[#999]">{item}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )
+                                                                    }
+                                                                </li>
+                                                            ))}
+                                                        </ul>
                                                     ))}
-                                                </ul>
-                                            ))}
-                                        </div>
+                                                </div>
 
 
-                                    </div>
+                                            </div>
+                                        )
+                                    }
+
                                 </li>
                             ))}
                         </ul>

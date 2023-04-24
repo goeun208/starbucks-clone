@@ -17,7 +17,7 @@ export default function Header() {
                     width={75}
                     height={75}
                     priority
-                    className='cursor-pointer pt-5'
+                    className='cursor-pointer pt-5 ml-4'
                 />
                 <nav className='z-50'>
                     <ul className="flex absolute top-0 right-12 h-[20px] mt-[15px] text-[#555] text-sm cursor-pointer ">
@@ -31,7 +31,7 @@ export default function Header() {
                     </ul>
                 </nav>
                 {/* 고정 프로모션 뱃지 */}
-                <div className='absolute w-[140px] top-[150px] -right-[200px] z-30'>
+                <div className='absolute w-[140px] top-[150px] -right-[15%] z-30'>
                     <Image
                         src="/images/promotion_image_hyundai.png"
                         alt="promotion_logo_hyundai"
@@ -41,7 +41,7 @@ export default function Header() {
                         className='w-full h-auto'
                     />
                 </div>
-                <div className='absolute w-[140px] top-[250px] -right-[200px] z-30'>
+                <div className='absolute w-[140px] top-[250px] -right-[15%] z-30'>
                     <Image
                         src="/images/promotion_image_corporate.png"
                         alt="promotion_logo_corporate"
@@ -53,9 +53,9 @@ export default function Header() {
                 </div>
             </div>
 
-            <nav className='hidden md:block absolute w-full left-0 top-[3.8rem] h-[7.5rem] text-sm z-20'>
-                <div className='w-[1100px] mx-auto my-0'>
-                    <ul className="flex justify-end cursor-pointer font-normal pr-5">
+            <nav className='hidden md:block absolute w-full top-[3.8rem] h-[7.5rem] text-sm z-20'>
+                <div className='lg:w-[1100px] w-[1000px] mx-auto my-0'>
+                    <ul className="flex justify-end cursor-pointer font-normal">
                         {DropdownData.map((dropdown, index: number) => (
                             <li key={index} className='group/gnb'>
                                 <p className='group-hover/gnb:underline px-[1.3rem] pt-[10px] h-[3.5rem] text-center group-hover/gnb:bg-[#2c2a29] group-hover/gnb:text-[#669900]'>{dropdown.dropTitle}</p>

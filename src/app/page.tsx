@@ -9,13 +9,11 @@ import SpringBlendBox from '@/components/SpringBlendBox'
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      
+    <div>      
       <main className='pt-[70px] md:pt-[7.5rem]'>
         <MainBanner />
         <NoticeBar />
-        <RewardsBox />
+        {/* <RewardsBox /> */}
         <SpringBlendBox />
         <ReserveBox />
         {/* <FavoriteMenuBox /> */}

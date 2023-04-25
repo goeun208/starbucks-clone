@@ -50,7 +50,8 @@ const RewardsBox = () => {
                         </div> 
                     </div>
             </div>
-            <div className="hidden semi-lg:block w-full h-[420px] semi-lg:h-[240px] pt-[30px] pb-[40px] bg-[#1e3932]">
+            {/* 웹 버전 */}
+            <div className="hidden semi-lg:block w-full h-[240px] pt-[30px] pb-[40px] bg-[#1e3932]">
                 <div className="h-full mx-auto my-0 flex justify-center">
                     {/* 리워드 로고 */}
                     <div className="mx-[40px]">

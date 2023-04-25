@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { clearInterval, setInterval } from "timers";
+import PromotionSlider from "./PromotionSlider";
 
 const NoticeBar = () => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const slideRef = useRef<HTMLDivElement>(null);
     const interval = useRef<any>(null); //공지사항 슬라이드를 위한 ref
     const [currentNoticeIdx, setCurrentNoticeIdx] = useState<number>(0);
     const handleBtn = () => {
@@ -105,46 +105,11 @@ const NoticeBar = () => {
                 </div>
 
             </div>
-            {
-                isOpen && (
-                    <div className="py-[40px]">
-                        <div className="w-[100vw] flex gap-5 animate-dropdown overflow-hidden" ref={slideRef}>
-                            <div className="w-[70rem]" >
-                                <Image
-                                    src="/static/images/starbucks_promotion_1.jpg"
-                                    alt="starbucks_promotion_star"
-                                    width={0}
-                                    height={0}
-                                    sizes="100vw"
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                            <div className="w-[70rem]">
-                                <Image
-                                    src="/static/images/starbucks_promotion_2.jpg"
-                                    alt="starbucks_promotion_reserve"
-                                    width={0}
-                                    height={0}
-                                    sizes="100vw"
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                            <div className="w-[70rem]">
-                                <Image
-                                    src="/static/images/starbucks_promotion_3.jpg"
-                                    alt="starbucks_promotion_spring_menu"
-                                    width={0}
-                                    height={0}
-                                    sizes="100vw"
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                        </div>
 
-                    </div>
+                {/* isOpen &&  */}
+                    <PromotionSlider />
+                
 
-                )
-            }
 
         </div>
 

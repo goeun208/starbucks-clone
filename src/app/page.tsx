@@ -13,7 +13,7 @@ export default function Home() {
       <main className='pt-[70px] md:pt-[7.5rem]'>
         <MainBanner />
         <NoticeBar />
-        {/* <RewardsBox /> */}
+        <RewardsBox />
         <SpringBlendBox />
         <ReserveBox />
         {/* <FavoriteMenuBox /> */}

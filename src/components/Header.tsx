@@ -33,7 +33,7 @@ export default function Header() {
                 {/* 고정 프로모션 뱃지 */}
                 <div className='absolute w-[140px] top-[150px] -right-[15%] z-30'>
                     <Image
-                        src="/images/promotion_image_hyundai.png"
+                        src="/static/images/promotion_image_hyundai.png"
                         alt="promotion_logo_hyundai"
                         width={0}
                         height={0}
@@ -43,7 +43,7 @@ export default function Header() {
                 </div>
                 <div className='absolute w-[140px] top-[250px] -right-[15%] z-30'>
                     <Image
-                        src="/images/promotion_image_corporate.png"
+                        src="/static/images/promotion_image_corporate.png"
                         alt="promotion_logo_corporate"
                         width={0}
                         height={0}

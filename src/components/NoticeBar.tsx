@@ -26,7 +26,7 @@ const NoticeBar = () => {
     useEffect(() => {
         const li = document.querySelector('#notice_wrap')!!.children[currentNoticeIdx] as HTMLElement;
         li.style.transition = "top 0.3s";
-        li.style.top = "-2px";
+        li.style.top = "0px";
     }, [currentNoticeIdx]);
 
     const textRotateAnimation = () => {
@@ -49,11 +49,12 @@ const NoticeBar = () => {
     }, [currentNoticeIdx]);
 
     return (
-        <div className="w-full relative">
+        <div className="w-full">
+            {/* 공지사항 */}
             <div className="w-full relative flex">
-                <div className="z-10 w-[53.5%] h-[62px] bg-[#111] flex justify-end pr-4">
-                    <div className="h-full w-[65%] lg:w-[50%] text-white flex items-center relative">
-                        <span className="w-[90px] font-semibold inline-block w-[65px]">공지사항</span>
+                <div className="z-10 w-[53.5%] h-[62px] bg-[#111] flex justify-end relative">
+                    <div className="lg:w-[60%] text-white flex items-center">
+                        <span className="w-[90px] font-semibold inline-block">공지사항</span>
                         <ul className="w-[250px] lg:w-[400px] h-[20px] overflow-hidden text-sm ml-1 mr-12 cursor-pointer relative" id="notice_wrap">
                             {
                                 noticeList.map((notice, noticeIdx) => {
@@ -77,24 +78,25 @@ const NoticeBar = () => {
                                 })
                             }
                         </ul>
-                        <div className="absolute right-2 cursor-pointer">
+                        
+                    </div>
+                    <div className="absolute top-3 right-3 cursor-pointer">
                             <div className="w-9 h-9 relative">
                                 <Image
-                                    src="/images/btn_notice_plus.png"
+                                    src="/static/images/btn_notice_plus.png"
                                     alt="notice_btn"
                                     fill
                                 />
                             </div>
                         </div>
-                    </div>
                 </div>
 
-                <div className="z-0 w-[50%] h-[62px] bg-white">
-                    <div className="w-[40%] h-full flex justify-end items-center">
-                        <span className="font-semibold">스타벅스 프로모션</span>
+                <div className="z-0 w-[50%] h-[62px] bg-white ">
+                    <div className="w-[70%] h-full flex justify-center items-center">
+                        <div className="font-semibold div">스타벅스 프로모션</div>
                         <div className="w-9 h-9 relative ml-14 cursor-pointer" onClick={handleBtn}>
                             <Image
-                                src="/images/btn_prom_down.png"
+                                src="/static/images/btn_prom_down.png"
                                 alt="notice_btn"
                                 fill
                             />
@@ -109,7 +111,7 @@ const NoticeBar = () => {
                         <div className="w-[100vw] flex gap-5 animate-dropdown overflow-hidden" ref={slideRef}>
                             <div className="w-[70rem]" >
                                 <Image
-                                    src="/images/starbucks_promotion_1.jpg"
+                                    src="/static/images/starbucks_promotion_1.jpg"
                                     alt="starbucks_promotion_star"
                                     width={0}
                                     height={0}
@@ -119,7 +121,7 @@ const NoticeBar = () => {
                             </div>
                             <div className="w-[70rem]">
                                 <Image
-                                    src="/images/starbucks_promotion_2.jpg"
+                                    src="/static/images/starbucks_promotion_2.jpg"
                                     alt="starbucks_promotion_reserve"
                                     width={0}
                                     height={0}
@@ -129,7 +131,7 @@ const NoticeBar = () => {
                             </div>
                             <div className="w-[70rem]">
                                 <Image
-                                    src="/images/starbucks_promotion_3.jpg"
+                                    src="/static/images/starbucks_promotion_3.jpg"
                                     alt="starbucks_promotion_spring_menu"
                                     width={0}
                                     height={0}

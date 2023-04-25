@@ -22,7 +22,7 @@ const MainBanner = () => {
     return (
         <>
             {/* 모바일 버전 */}
-            <div className="block md:hidden box-border z-10 w-full h-[262vw] relative bg-[url('/images/2023_m_spring2_promotion_bg.jpg')] bg-cover" id="m_spring_menu_wrap">
+            <div className="block md:hidden box-border z-10 w-full h-[262vw] relative bg-[url('/static/images/2023_m_spring2_promotion_bg.jpg')] bg-cover" id="m_spring_menu_wrap">
                 <div className='absolute top-[6.5%] left-[14%] w-[43%]'>
                         <Image
                             src="https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_top_logo.png"
@@ -35,7 +35,7 @@ const MainBanner = () => {
                 </div>
                 <div style={{opacity: 0}} className='absolute top-[16%] left-[12%] w-[75%]'>
                     <Image
-                        src="/images/2023_m_spring2_top_drink1.png"
+                        src="/static/images/2023_m_spring2_top_drink1.png"
                         alt="2023_spring_drink_chouxcream"
                         width={0}
                         height={0}
@@ -45,8 +45,8 @@ const MainBanner = () => {
                 </div>
                 <div style={{opacity: 0}} className='absolute top-[40%] right-0 w-[83%]'>
                     <Image
-                        src="/images/2023_m_spring2_top_drink2.png"
-                        alt="2023_spring_drink_chouxcream"
+                        src="/static/images/2023_m_spring2_top_drink2.png"
+                        alt="2023_spring_drink_pink"
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -55,8 +55,8 @@ const MainBanner = () => {
                 </div>
                 <div style={{opacity: 0}} className='absolute top-[61%] left-[12%] w-[73%]'>
                     <Image
-                        src="/images/2023_m_spring2_top_drink3.png"
-                        alt="2023_spring_drink_chouxcream"
+                        src="/static/images/2023_m_spring2_top_drink3.png"
+                        alt="2023_spring_drink_lemon"
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -66,7 +66,7 @@ const MainBanner = () => {
                 <button type="button" className='absolute bottom-[7%] left-[32%] pb-1 w-[36%] h-[4%] text-[#014938] font-semibold text-[1.3rem] border-2 border-[#014938] rounded-[5px] hover:animate-firstBanner hover:text-white hover:underline'>자세히 보기</button>
             </div>
             {/* 웹 버전 */}
-            <div className="hidden md:block z-10 min-h-[31vw] relative bg-[url('/images/2023_spring2_promotion_bg_1.jpg')] bg-cover bg-top" id="w_spring_menu_wrap">
+            <div className="hidden md:block z-10 min-h-[31vw] relative bg-[url('/static/images/2023_spring2_promotion_bg_1.jpg')] bg-cover bg-top" id="w_spring_menu_wrap">
                 <div className='absolute top-[36%] left-[15%] w-[17%]'>
                     <Image
                         src="https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_top_logo.png"
@@ -83,7 +83,7 @@ const MainBanner = () => {
                 >
                     <Image
                         src="https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_top_drink1.png"
-                        alt="2023_spring_drink_lemon"
+                        alt="2023_spring_drink_chouxcream"
                         width={0}
                         height={0}
                         sizes="100vw"
@@ -93,7 +93,7 @@ const MainBanner = () => {
                 <div style={{opacity: 0}} className='absolute top-[14%] left-[35.8%] w-[18%]'>
                     <Image
                         src="https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_top_drink2.png"
-                        alt="2023_spring_drink_lemon"
+                        alt="2023_spring_drink_pink"
                         width={0}
                         height={0}
                         sizes="100vw"

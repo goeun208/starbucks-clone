@@ -7,23 +7,24 @@ const SpringBlendBox = () => {
 
     const [idx, setIdx] = useState<number>(0);
     const animatedItem:any = useScrollFadeIn(); // 스크롤 커스텀 훅 불러오기
+    const animatedLeftItem:any = useScrollFadeIn('left', 2); 
 
-    useEffect(() => { // 글씨 애니메이션
-        if(idx < 2) {
-            setTimeout(() => {
-                setIdx(idx + 1);
-            }, 500);
-            const blendWrap = document.querySelector('#spring_blend_box')!!.children[idx] as HTMLDivElement;
-            idx === 1 && ( blendWrap.style.opacity = "1", blendWrap.style.right = "32%", blendWrap.style.transition = "right 2s ease-out");
-        }
-    }, [idx])
+    // useEffect(() => { // 글씨 애니메이션
+    //     if(idx < 2) {
+    //         setTimeout(() => {
+    //             setIdx(idx + 1);
+    //         }, 500);
+    //         const blendWrap = document.querySelector('#spring_blend_box')!!.children[idx] as HTMLDivElement;
+    //         idx === 1 && ( blendWrap.style.opacity = "1", blendWrap.style.right = "32%", blendWrap.style.transition = "right 2s ease-out");
+    //     }
+    // }, [idx])
 
     return (
-        <div className="min-h-[23vw] relative bg-[url('/images/2023_spring_promotion_bg.jpg')] bg-cover" id="spring_blend_box">
+        <div className="min-h-[23vw] relative bg-[url('/static/images/2023_spring_promotion_bg.jpg')] bg-cover" id="spring_blend_box">
             {/* 스크롤 애니메이션 사용을 위해 {...animatedItem} */}
             <div className='absolute top-[1%] left-[30%] w-[15%]' {...animatedItem}>
                 <Image
-                    src='/images/2023_spring_promotion_img.png'
+                    src='/static/images/2023_spring_promotion_img.png'
                     alt="2023_spring_blend"
                     width={0}
                     height={0}
@@ -31,9 +32,9 @@ const SpringBlendBox = () => {
                     className="w-full h-auto"
                 />
             </div>
-            <div style={{opacity: 0, right: "0"}} className='absolute top-[34%] w-[14%]'>
+            <div className='absolute top-[34%] right-[32%] w-[14%]' {...animatedLeftItem}>
                 <Image
-                    src='/images/2023_spring_promotion_txt_2.png'
+                    src='/static/images/2023_spring_promotion_txt_2.png'
                     alt="2023_spring_blend"
                     width={0}
                     height={0}

@@ -91,24 +91,34 @@ const NoticeBar = () => {
                         </div>
                 </div>
 
-                <div className="z-0 w-[50%] h-[62px] bg-white ">
+                <div className="z-0 w-[50%] h-[62px] bg-[#f6f5ef]">
                     <div className="w-[70%] h-full flex justify-center items-center">
                         <div className="font-semibold div">스타벅스 프로모션</div>
                         <div className="w-9 h-9 relative ml-14 cursor-pointer" onClick={handleBtn}>
-                            <Image
-                                src="/static/images/btn_prom_down.png"
-                                alt="notice_btn"
-                                fill
-                            />
+                            {
+                                isOpen ? (
+                                    <Image
+                                        src="/static/images/btn_prom_up.png"
+                                        alt="notice_btn"
+                                        fill
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/static/images/btn_prom_down.png"
+                                        alt="notice_btn"
+                                        fill
+                                    />
+                                )
+                            }
+                            
                         </div>
                     </div>
                 </div>
 
             </div>
+          
+                    <PromotionSlider isOpen={isOpen} />
 
-                {/* isOpen &&  */}
-                    <PromotionSlider />
-                
 
 
         </div>

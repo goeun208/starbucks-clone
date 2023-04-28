@@ -49,9 +49,8 @@ export const slideArr: SlideProps[] = [
 
 const PromotionSlider = ({ isOpen }: any) => {
 
-    const [slideIndex, setSlideIndex] = useState(1);
-    const [custominterval, setCustomInterval] = useState(2000);
-    const [promId, setPromChecked] = useState(0);
+    const [slideIndex, setSlideIndex] = useState(3);
+    const [custominterval, setCustomInterval] = useState(3000);
     const outRef = useRef<HTMLDivElement>(null);
     const slideRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +74,6 @@ const PromotionSlider = ({ isOpen }: any) => {
 
     useEffect(() => {
         const promotion = document.querySelector("#promotion_container") as HTMLElement;
-        console.log(promotion)
         isOpen ? (promotion.style.height = "650px",
             promotion.style.transition = "all 0.6s ease-out")
             : (promotion.style.height = "0px",
@@ -83,12 +81,25 @@ const PromotionSlider = ({ isOpen }: any) => {
     }, [isOpen])
 
     useEffect(() => {
-        if (slideIndex === 5) {
+        if (slideIndex === 5) { // 오른쪽 마지막 슬라이드
             if (slideRef.current) {
                 slideRef.current.style.transition = "";
             }
 
             setSlideIndex(1);
+
+            setTimeout(() => {
+                if (slideRef.current) {
+                    slideRef.current.style.transition = "all 0.5s ease-in-out"
+                } 
+            }, 0);
+        }
+        if (slideIndex === -1) { // 왼쪽 마지막 슬라이드
+            if (slideRef.current) {
+                slideRef.current.style.transition = "";
+            }
+
+            setSlideIndex(3);
 
             setTimeout(() => {
                 if (slideRef.current) {
@@ -99,13 +110,40 @@ const PromotionSlider = ({ isOpen }: any) => {
     }, [slideIndex]);
 
     return (
-        <div className="overflow-hidden relative bg-[#f6f5ef]" id="promotion_container" style={{ height: 0 }}>
-            {/* 가운데 위치 */}
-            <div className='w-[950px] mx-auto z-10 relative'>
+        <div className="overflow-hidden relative bg-[#f6f5ef] flex justify-center" id="promotion_container" style={{ height: 0 }}>
+                        {/* 스와이퍼 */}
+            <div className='ml-[343vw] lg:ml-0 lg:w-[39%] mx-auto pt-5'>
+            <div
+                className="flex justify-end h-[90%]"
+                ref={slideRef}
+                style={{
+                    width: `${819 * COPIED_NUM}px`,
+                    transition: "all 0.5s ease-in-out",
+                    transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
+                        }%)`,
+                }}
+            >
+                {copiedArr.map((item, index) => (
+                    <div key={index} className="w-[819px]  mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
+                        <Image
+                            src={item.img}
+                            alt="로고"
+                            width={0}
+                            height={0}
+                            sizes='100vw'
+                            className='w-full h-auto'
+                        />
+                        <button type="button" className='w-[121px] absolute bottom-10 left-[42.5%] text-black border-2 border-black py-2 rounded-[3px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20' >자세히 보기</button>
+                    </div>
+                ))}
+            </div>
+            </div>
+            {/* 버튼 - 가운데 위치 */}
+            <div className='w-[950px] mx-auto z-10 absolute top-0'>
                 <div className='relative h-[650px] flex justify-between items-center mx-auto'>
                     {/* 이전 버튼 */}
                     <button type="button"
-                        className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center ' onClick={() => handleSlideIdx(-1)}>
+                        className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center' onClick={() => handleSlideIdx(-1)}>
                         <Image
                             src="/static/images/arrow_left_on.png"
                             alt="이전"
@@ -165,31 +203,7 @@ const PromotionSlider = ({ isOpen }: any) => {
                 </div>
             </div>
 
-            {/* 스와이퍼 */}
-            <div
-                className="flex mt-10 absolute top-0 left-[34%]"
-                ref={slideRef}
-                style={{
-                    width: `${819 * COPIED_NUM}px`,
-                    transition: "all 0.5s ease-in-out",
-                    transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
-                        }%)`,
-                }}
-            >
-                {copiedArr.map((item, index) => (
-                    <div key={index} className="w-[819px]  mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
-                        <Image
-                            src={item.img}
-                            alt="로고"
-                            width={0}
-                            height={0}
-                            sizes='100vw'
-                            className='w-full h-auto'
-                        />
-                        <button type="button" className='w-[121px] absolute bottom-3 left-[42.5%] text-black border-2 border-black py-2 rounded-[3px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20' >자세히 보기</button>
-                    </div>
-                ))}
-            </div>
+
 
 
 

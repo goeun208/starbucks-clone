@@ -5,7 +5,7 @@ const RewardsBox = () => {
         <div>
             {/* 모바일 버전 */}
             <div className="block semi-lg:hidden w-full h-[430px] px-[30px] bg-[#1e3932] flex justify-center">
-                <div className="mx-[30px] mt-[4rem] w-[248px] h-[215px]">
+                <div className="mx-[15px] md:mx-[30px] mt-[4rem] w-[248px] h-[215px]">
                         <Image
                             src="/static/images/rewards-logo.png"
                             alt="rewards_logo"

@@ -9,16 +9,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'sm': '640px',
-        // => @media (min-width: 576px) { ... }
-  
+        'xs': '280px',
+        'sm': '660px',
         'md': '960px',
-        // => @media (min-width: 960px) { ... }
-        'semi-lg': '1021px',
-        // => @media (min-width: 960px) { ... }
-  
+        'semi-lg': '1100px',
         'lg': '1140px',
-        // => @media (min-width: 1440px) { ... }
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

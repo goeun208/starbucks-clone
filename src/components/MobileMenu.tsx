@@ -64,9 +64,9 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                             {
                                 MobileDropdownData.map((dropdown_items: MobileDropDownType, first_index: number) => (
                                     <li key={first_index} className='group/gnb'> {/* 첫번째 메뉴 */}
-                                        <div className="flex justify-between items-center border-b border-[#333] px-[1rem]" onClick={() => handleMenuIdx(first_index)}>
+                                        <div className="flex justify-between items-center border-b border-[#333] px-[1rem] sm:px-[2.2rem]" onClick={() => handleMenuIdx(first_index)}>
 
-                                            <p className='hover:underline h-[5rem] text-[1.75rem] flex items-center font-medium text-white'>{dropdown_items.title}</p>
+                                            <p className='hover:underline h-[5rem] text-sm xs:text-lg sm:text-[1.75rem] flex items-center font-medium text-white'>{dropdown_items.title}</p>
 
                                             {
                                                 dropdown_items.checked ? // 체크 여부 판별하기
@@ -77,10 +77,6 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                                     )
                                             }
                                         </div>
-                                        {/* {
-                                            dropdown_items.checked && 
-                                            <div className="text-white">열림</div>
-                                        } */}
 
                                         {/* //첫번째 checked가 true일때 등장!
                                             // 두번째 서브 메뉴 */}
@@ -90,7 +86,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                             <div className='flex flex-col mx-auto' id="mobile_inner_menu_box">
                                                 {dropdown_items.dropDownMenu?.map((menus, menus_idx: number) => (
                                                     <ul key={menus_idx}>
-                                                        <div className="flex text-[1.5rem] text-white pl-[2.2rem] pr-[1rem] py-5 justify-between items-center" onClick={() => handleInnerMenuIdx(menus, menus_idx)}>
+                                                        <div className="flex text-sm xs:text-lg sm:text-[1.5rem] text-white px-[1rem] sm:px-[2.2rem] pr-[1rem] py-5 justify-between items-center" onClick={() => handleInnerMenuIdx(menus, menus_idx)}>
                                                             <span className="hover:underline">{menus.subTitle}</span>
                                                             {
                                                                 menus.subMenu !== null ? ( // subMenu가 있는 것만 나타나게 하기 // 접혔다 펼쳤다 T/F로 구분
@@ -108,7 +104,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                                              menus.subChecked &&
                                                             
                                                                 menus.subMenu !== null && menus.subMenu.map((subMenus: any, sub_idx: number) => (
-                                                                    <li key={sub_idx} className="px-[3.5rem] py-3 text-base text-[#999]">{subMenus}</li>
+                                                                    <li key={sub_idx} className="bg-[#222] px-[1rem] sm:px-[3rem] py-3 text-base text-[#999]">{subMenus}</li>
                                                                 ))
                                                             
                                                         }

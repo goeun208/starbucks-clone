@@ -112,9 +112,9 @@ const PromotionSlider = ({ isOpen }: any) => {
     return (
         <div className="overflow-hidden relative bg-[#f6f5ef] flex justify-center" id="promotion_container" style={{ height: 0 }}>
                         {/* 스와이퍼 */}
-            <div className='ml-[343vw] lg:ml-0 lg:w-[39%] mx-auto pt-5'>
+            <div className='w-[1040px] mx-auto pt-5'>
             <div
-                className="flex justify-end h-[90%]"
+                className="flex h-[90%] ml-[11%]"
                 ref={slideRef}
                 style={{
                     width: `${819 * COPIED_NUM}px`,
@@ -124,7 +124,7 @@ const PromotionSlider = ({ isOpen }: any) => {
                 }}
             >
                 {copiedArr.map((item, index) => (
-                    <div key={index} className="w-[819px]  mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
+                    <div key={index} className="w-[819px] mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
                         <Image
                             src={item.img}
                             alt="로고"
@@ -137,9 +137,8 @@ const PromotionSlider = ({ isOpen }: any) => {
                     </div>
                 ))}
             </div>
-            </div>
             {/* 버튼 - 가운데 위치 */}
-            <div className='w-[950px] mx-auto z-10 absolute top-0'>
+            <div className='w-[1058px] mx-auto z-10 absolute top-0'>
                 <div className='relative h-[650px] flex justify-between items-center mx-auto'>
                     {/* 이전 버튼 */}
                     <button type="button"
@@ -202,6 +201,8 @@ const PromotionSlider = ({ isOpen }: any) => {
                     </button>
                 </div>
             </div>
+            </div>
+            
 
 
 

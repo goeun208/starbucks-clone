@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '280px',
-        'sm': '660px',
+        'xs': '480px',
+        'sm': '670px',
         'md': '960px',
         'semi-lg': '1100px',
         'lg': '1140px',
@@ -37,6 +37,10 @@ module.exports = {
           '0%': {backgroundColor: 'none'},
           '100%': {backgroundColor: '#fff'},
         },
+        blackButton: {
+          '0%': {backgroundColor: 'none'},
+          '100%': {backgroundColor: '#000'},
+        },
         dropDownButton: {
           '0%': {transform: 'rotate(0)'},
           '100%': {transform: 'rotate(180deg)'},
@@ -47,6 +51,7 @@ module.exports = {
         firstBanner: 'firstBanner 0.5s ease-out forwards',
         secondBanner: 'secondBanner 0.5s ease-out forwards',
         whiteButton: 'whiteButton 0.5s ease-out forwards',
+        blackButton: 'blackButton 0.5s ease-out forwards',
         dropDownButton: 'dropDownButton 0.5s ease-out forwards'
       },
     },

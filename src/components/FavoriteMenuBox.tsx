@@ -48,7 +48,7 @@ const FavoriteMenuBox = () => {
                         />
                     </div>
                     <div className='mx-auto flex justify-center pt-[3%]' {...mbtnAnimationItem}>
-                        <button className='w-[20%] sm:w-[15%] text-white border-2 border-white py-[1%] rounded-[5px] text-[4px] sm:text-sm hover:animate-whiteButton hover:text-black hover:underline'>자세히 보기</button>
+                        <button className='w-[25%] sm:w-[15%] text-white border-2 border-white py-[1%] rounded-[5px] text-[6px] xxs:text-sm hover:animate-whiteButton hover:text-black hover:underline'>자세히 보기</button>
                     </div>
                     
                 </div>

@@ -4,37 +4,56 @@ import { useScrollFadeIn } from "@/hooks/useControlFadeIn";
 
 const ReserveMagazine = () => {
 
-    const animationItem: any = useScrollFadeIn('',2);
+    const animationItem: any = useScrollFadeIn('', 2);
+    const mobileAnimatedItem:any = useScrollFadeIn('', 2, 0);
     return (
-        <div className="w-full h-[33vh] flex justify-center items-end">
-            <div className="w-[85%] h-[27vh] bg-[url('/static/images/reserve_bg_pc.png')] flex justify-center bg-cover relative">
-                {/* 사진 */}
-                <div className="w-[70%] relative flex justify-center -mt-[52px]">
-                    {/* 로고 */}
-                    <div className='mt-[9%] ml-[100px] w-[588px] z-20'>
-                        <Image
-                            src='/static/images/reserve_text_pc.png'
-                            alt="reserve_costa_rica_logo"
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            className="w-full h-auto"
-                        />
-                    </div>
-                    <div className='w-[348px] z-10 absolute right-0' {...animationItem}>
-                        <Image
-                            src='/static/images/reserve_visual_pc.png'
-                            alt="reserve_costa_rica_logo"
-                            width={0}
-                            height={0}
-                            sizes="100vw"
-                            className="w-full h-auto"
-                        />
-                    </div>
+        <div>
+            <div className="block rm-md:hidden min-h-[183vw] relative" {...mobileAnimatedItem}>
+                <div className='w-[100%] '>
+                    <Image
+                        src='/static/images/reserve_visual_m.jpg'
+                        alt="reserve_costa_rica_logo"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
                 </div>
-                
-                <button type="button" className='absolute left-[38%] bottom-[30%] w-[8rem] text-black border-2 border-black py-[9px] rounded-[5px] text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
-            </div> 
+                <button type="button" className='absolute left-[30%] bottom-[6%] z-10 w-[20%] sm:w-[15%] border-2 border-black py-[5px] sm:py-[9px] rounded-[5px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
+            </div>
+            {/* web */}
+            <div className="hidden rm-md:block z-10 min-h-[17vw] relative overflow-hidden">
+                <div className='w-[30%] absolute top-[30%] left-[35%] z-20'>
+                    <Image
+                        src='/static/images/reserve_text_pc.png'
+                        alt="reserve_costa_rica_logo"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                </div>
+                <div className='w-[15%] absolute right-[25%] z-10' {...animationItem}>
+                    <Image
+                        src='/static/images/reserve_visual_pc.png'
+                        alt="reserve_costa_rica_logo"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                </div>
+                <div className='w-[90%] absolute bottom-0 left-[5%]'>
+                    <Image
+                        src='/static/images/reserve_bg_pc.png'
+                        alt="reserve_costa_rica_logo"
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                </div>
+            </div>
         </div>
     );
 }

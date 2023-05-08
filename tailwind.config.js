@@ -9,11 +9,15 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '480px',
-        'sm': '670px',
-        'md': '960px',
-        'semi-lg': '1100px',
-        'lg': '1140px',
+        'xxs': '360px',
+        'xs': '481px',
+        'semi-sm': '641px',
+        'sm': '671px',
+        'rm-md': '931px',
+        'md': '961px',
+        'semi-lg': '1101px',
+        'lg': '1141px',
+        'xl': '1600px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

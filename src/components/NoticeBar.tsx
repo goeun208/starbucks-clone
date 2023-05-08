@@ -52,7 +52,7 @@ const NoticeBar = () => {
         <div className="w-full">
             {/* 공지사항 */}
             <div className="w-full relative sm:flex">
-                <div className="z-10 xs:pl-4 sm:w-[54%] lg:w-[56%] h-[110px] sm:h-[62px] bg-[#111] flex sm:justify-center relative">
+                <div className="z-10 xs:pl-4 sm:w-[50%] lg:w-[53%] h-[110px] sm:h-[80px] bg-[#111] flex sm:justify-center relative">
                     <div className="text-white flex justify-start items-center">
                         <span className="block sm:hidden w-9 h-9 relative mx-5">
                             <Image
@@ -61,8 +61,8 @@ const NoticeBar = () => {
                                 fill
                             />
                         </span>
-                        <span className="hidden sm:block w-[90px] font-semibold inline-block">공지사항</span>
-                        <ul className="w-[80%] xs:w-[350px] sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
+                        <span className="hidden sm:block w-[10vw] ml-2 font-semibold inline-block">공지사항</span>
+                        <ul className="xxs:w-[250px] xs:w-[350px] sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
                             {
                                 noticeList.map((notice, noticeIdx) => {
                                     const { label } = notice;
@@ -86,7 +86,7 @@ const NoticeBar = () => {
                             }
                         </ul>
                     </div>
-                    <div className="absolute top-[35%] sm:top-3 right-3 cursor-pointer">
+                    <div className="absolute top-[35%] sm:top-6 right-3 cursor-pointer">
                         <div className="w-9 h-9 relative mr-5 sm:mr-0">
                             <Image
                                 src="/static/images/btn_notice_plus.png"
@@ -97,8 +97,8 @@ const NoticeBar = () => {
                     </div>
                 </div>
 
-                <div className="z-0 sm:w-[50%] h-[110px] sm:h-[62px] bg-[#f6f5ef]">
-                    <div className="md:w-[80%] lg:w-[70%] h-full flex justify-center items-center">
+                <div className="z-0 sm:w-[50%] h-[110px] sm:h-[80px] bg-[#f6f5ef] flex justify-center">
+                    <div className="w-[100%] md:w-[80%] lg:w-[70%] h-full flex justify-center items-center">
                         <div className="text-xl sm:text-base font-semibold div">스타벅스 프로모션</div>
                         <div className="w-9 h-9 relative ml-14 cursor-pointer" onClick={handleBtn}>
                             {

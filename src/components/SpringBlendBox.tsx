@@ -48,7 +48,7 @@ const SpringBlendBox = () => {
                 />
             </div>
             <button className='block md:hidden w-[35%] absolute bottom-[12%] right-[32%] text-[#e54360] border-[#e54360] border-2 sm:border-[3px] py-[3%] rounded-[5px] font-semibold text-[1rem] xs:text-[1.25rem] hover:animate-secondBanner hover:text-white hover:underline'>자세히 보기</button>
-            <button className='hidden md:block absolute top-[60%] right-[38%] w-[8%] text-[#e54360] border-2 border-[#e54360] py-2 rounded-[5px] text-xs lg:text-sm  hover:animate-secondBanner hover:text-white hover:underline'>자세히 보기</button>
+            <button className='hidden md:block absolute top-[60%] right-[40%] w-[6%] text-[#e54360] border-2 border-[#e54360] py-2 rounded-[5px] text-xs xl:text-sm  hover:animate-secondBanner hover:text-white hover:underline'>자세히 보기</button>
         </div >
     );
 }

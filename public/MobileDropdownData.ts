@@ -5,6 +5,7 @@ export interface MobileMenuType {
 }
 
 export interface MobileDropDownType {
+    menu: any;
     title: string;
     checked: boolean;
     dropDownMenu?: MobileMenuType[];

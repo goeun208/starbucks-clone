@@ -80,7 +80,7 @@ const FavoriteMenuBox = () => {
                             />
                         </div>
                         <div {...btnAnimationItem}>
-                            <button type="button" className='absolute top-[595px] w-[6rem] right-0 text-white border border-white py-2 rounded-[5px] text-xs hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20'>자세히 보기</button>
+                            <button type="button" className='absolute top-[595px] w-[7.8rem] right-0 text-white border border-white py-2 rounded-[5px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20'>자세히 보기</button>
                         </div>
 
                     </div>

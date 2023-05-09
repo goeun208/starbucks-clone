@@ -15,7 +15,7 @@ const StoreBox = () => {
 
     return (
         <div className="w-full min-h-[100vw] md:min-h-[19vw] bg-[url('/static/images/store_bg.jpg')] relative bg-cover overflow-hidden">
-            <div className="">
+            <div>
                 {/* 원두 이미지 */}
                 <div className='absolute w-[35%] md:w-[18%] top-[33%] md:-top-[15%] left-[22%] md:left-[49%]'>
                     <Image
@@ -28,7 +28,7 @@ const StoreBox = () => {
                     />
                 </div>
                 {/* 우측 이미지 2개 */}
-                <div className='absolute top-[0%] left-[25%] md:left-[30%] w-[40%] md:w-[19%]'>
+                <div className='absolute top-[0%] left-[25%] md:left-[28%] w-[40%] md:w-[17%]'>
                     <Image
                         src='/static/images/221212_main_story_1.png'
                         alt="main_story_1"
@@ -38,7 +38,7 @@ const StoreBox = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <div className='absolute w-[25%] md:w-[10%] top-[21%] md:top-[45%] left-[55%] md:left-[42%]'>
+                <div className='absolute w-[25%] md:w-[10%] top-[21%] md:top-[45%] left-[55%] md:left-[40%]'>
                     <Image
                         src='/static/images/221212_main_story_2.png'
                         alt="main_story_2"
@@ -70,7 +70,7 @@ const StoreBox = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <div className='hidden md:block absolute w-[18%] top-[27%] right-[29%] ' {...animatedCenterItem}>
+                <div className='hidden md:block absolute w-[16%] top-[27%] right-[29%] ' {...animatedCenterItem}>
                     <Image
                         src='/static/images/221212_pc_main_story_txt_1.png'
                         alt="pc_main_story_txt_1"
@@ -92,7 +92,7 @@ const StoreBox = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <div className='hidden md:block absolute w-[18%] top-[45%] right-[29%]' {...animatedBottomItem}>
+                <div className='hidden md:block absolute w-[16%] top-[45%] right-[29%]' {...animatedBottomItem}>
                     <Image
                         src='/static/images/221212_pc_main_story_txt_2.png'
                         alt="pc_main_story_txt_2"
@@ -102,8 +102,8 @@ const StoreBox = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <button type="button" className='block md:hidden absolute right-[40.5%] bottom-[5%] xxs:bottom-[8%] w-[20%] border-2 border-black py-[1.5%] rounded-[3px] text-xs xxs:text-[4px] sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...mAnimatedBtnItem}>매장 찾기</button>
-                <button type="button" className='hidden md:block absolute right-[40%] bottom-[15%] w-[7%] border-2 border-black py-[9px] rounded-[3px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...animatedBtnItem}>매장 찾기</button>
+                <button type="button" className='block md:hidden absolute right-[40.5%] bottom-[5%] xxs:bottom-[8%] w-[20%] border-2 border-black py-[1.5%] rounded-[3px] text-xs xxs:text-[0.75rem] sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...mAnimatedBtnItem}>매장 찾기</button>
+                <button type="button" className='hidden md:block absolute right-[40%] bottom-[17%] w-[5%] border-2 border-black py-[9px] rounded-[3px] semi-lg:text-xs xl:text-sm hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...animatedBtnItem}>매장 찾기</button>
             </div>
 
         </div>

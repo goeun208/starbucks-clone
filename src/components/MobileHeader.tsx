@@ -8,6 +8,7 @@ const MobileHeader = () => {
         const [isOpen, setIsOpen] = useState<boolean>(false);
         const handleNav = () => {
             setIsOpen(!isOpen);
+            console.log('isopen', isOpen)
         }
 
         useEffect(() => {
@@ -30,7 +31,7 @@ const MobileHeader = () => {
                    
                     <nav className="absolute top-0 right-0">
                         <div className="absolute top-0 right-0 z-40">
-                            {isOpen && <MobileMenu isOpen={isOpen} handleNav={handleNav} />}
+                            { isOpen && <MobileMenu isOpen={isOpen} handleNav={handleNav} />}
                         </div>
                         <ul className="w-[120px] h-[60px] pt-[10px] flex justify-between items-center absolute top-0 right-5">
                             <li className="relative">

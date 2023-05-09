@@ -62,7 +62,7 @@ const NoticeBar = () => {
                             />
                         </span>
                         <span className="hidden sm:block w-[10vw] text-center ml-2 font-semibold inline-block">공지사항</span>
-                        <ul className="xxs:w-[250px] xs:w-[350px] sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
+                        <ul className="w-[150px] xxs:w-[250px] xs:w-[350px] sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
                             {
                                 noticeList.map((notice, noticeIdx) => {
                                     const { label } = notice;

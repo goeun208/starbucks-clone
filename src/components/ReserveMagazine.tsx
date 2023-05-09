@@ -19,11 +19,11 @@ const ReserveMagazine = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <button type="button" className='absolute left-[30%] bottom-[8%] z-10 w-[25%] sm:w-[15%] border-2 border-black py-[5px] sm:py-[9px] rounded-[5px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
+                <button type="button" className='absolute left-[30%] bottom-[8%] z-10 w-[25%] sm:w-[15%] border-2 border-black py-[9px] sm:py-[9px] rounded-[5px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
             </div>
             {/* web */}
             <div className="hidden rm-md:block z-10 min-h-[17vw] relative overflow-hidden">
-                <div className='w-[30%] absolute top-[30%] left-[35%] z-20'>
+                <div className='w-[25%] absolute top-[30%] left-[36%] z-20'>
                     <Image
                         src='/static/images/reserve_text_pc.png'
                         alt="reserve_costa_rica_logo"
@@ -53,6 +53,7 @@ const ReserveMagazine = () => {
                         className="w-full h-auto"
                     />
                 </div>
+            <button className='absolute top-[62%] left-[41.5%] w-[6%] xl:w-[7%] border-2 border-black py-2 rounded-[5px] text-xs xl:text-sm  hover:animate-blackButton hover:text-white hover:underline'>자세히 보기</button>
             </div>
         </div>
     );

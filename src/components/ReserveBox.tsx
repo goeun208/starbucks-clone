@@ -35,7 +35,7 @@ const ReserveBox = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <button type="button" className='absolute top-[65%] left-[36%] w-[8%] text-white border-2 border-white py-2 rounded-[5px] text-xs hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20'>자세히 보기</button>
+                <button type="button" className='absolute top-[65%] left-[38%] w-[6%] text-white border-2 border-white py-2 rounded-[5px] text-xs xl:text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20'>자세히 보기</button>
                 
                 <div className='absolute top-[3%] right-[9%] w-[80%]' {...animatedItem}>
                     <Image

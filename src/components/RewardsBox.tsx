@@ -4,7 +4,7 @@ const RewardsBox = () => {
     return (
         <div>
             {/* 모바일 버전 */}
-            <div className="block semi-lg:hidden w-full semi-sm:h-[430px] px-[30px] py-[40px] semi-sm:py-0 bg-[#1e3932] mx-auto semi-sm:flex justify-center">
+            <div className="block semi-lg:hidden w-full semi-sm:h-[430px] px-[15px] xs:px-[30px] py-[40px] semi-sm:py-0 bg-[#1e3932] mx-auto semi-sm:flex justify-center">
                 <div className="mx-auto semi-sm:mx-[15px] md:mx-[30px] semi-sm:mt-[4rem] w-[44%]">
                         <Image
                             src="/static/images/rewards-logo.png"
@@ -14,8 +14,8 @@ const RewardsBox = () => {
                         />
                 </div>
                 <div className="text-white flex-col w-[100%] semi-sm:min-w-[50%] mx-auto text-center semi-sm:text-left semi-sm:ml-[30px] pt-[30px] relative">
-                    <div className="text-[1.5rem] leading-8"> 스타벅스만의 특별한 혜택,</div>
-                    <div className="font-semibold text-[1.5rem]">스타벅스 리워드</div>
+                    <div className="text-[1.25rem] xs:text-[1.5rem] leading-8"> 스타벅스만의 특별한 혜택,</div>
+                    <div className="font-semibold text-[1.25rem] xs:text-[1.5rem]">스타벅스 리워드</div>
                      
                             <div className="">
                                 <div className="flex justify-center semi-sm:justify-start relative h-[9.5rem] my-4 border-b">

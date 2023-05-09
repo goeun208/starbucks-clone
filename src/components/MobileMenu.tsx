@@ -7,26 +7,27 @@ import { MobileDropDownType } from "../../public/MobileDropdownData";
 const MobileMenu = ({ isOpen, handleNav }: any) => {
     const [data, setData] = useState<MobileDropDownType[]>(MobileDropdownData);
     const ref:any = useRef<HTMLElement>(null);
+    const liRef:any = useRef<HTMLElement>(null);
 
     useEffect(() => {
         setData(MobileDropdownData);
     }, [])
 
+
     useEffect(() => {
-        isOpen && (
-            ref.current.style.transition = "right 2s ease-out",
+        setTimeout(() => {
+            ref.current.style.transition = "right 0.7s ease-out",
             ref.current.style.right = "0"
-        )
+        }, 100)
+
     }, [isOpen])
 
     const handleMenuIdx = (title: string) => {
-        //맨 처음 두번 클릭되는 문제
         const findIndex = data.findIndex(element => element.title === title)
         let copyArr = [...data];
         if (findIndex !== -1) {
             copyArr[findIndex] = { ...copyArr[findIndex], checked: !copyArr[findIndex].checked };
         }
-        console.log('copy ARR', copyArr[findIndex]);
         setData(copyArr);
     }
 
@@ -42,22 +43,22 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
     }
 
     return (
-        <div className="flex w-screen h-screen relative" style={{ width: 0 }} id="nav">
+        <div className="w-screen h-screen relative" style={{ width: 0 }}>
             {/* 뒤 투명 배경 */}
-            <div className="w-screen h-screen bg-black opacity-70"></div>
-            <div>
-                {/* 메뉴 박스 */}
-                <button type="button" className="w-7 h-7 absolute top-12 left-[29%] xs:left-[31%] sm:left-[33%]" onClick={handleNav}>
-                    <Image
-                        src="/static/images/btn_gnb_close.png"
-                        alt="promotion_logo_hyundai"
-                        width={0}
-                        height={0}
-                        sizes='100vw'
-                        className='w-full h-auto hover:animate-dropDownButton'
-                    />
-                </button>
-                <div className="fixed w-[60vw] h-screen bg-[#111111] overflow-auto" ref={ref} style={{ right: "-80%" }}>
+            <div className="w-screen h-screen bg-black opacity-70 absolute" style={{opacity: 0.7, }}></div>
+            <div className="flex w-screen h-screen relative">
+                <div className="fixed w-[60vw] h-screen bg-[#111111] z-20" ref={ref} style={{ right: "-70%" }}>
+                     {/* 엑스 박스 */}
+                    <button type="button" className="w-7 h-7 absolute top-10 left-[-3rem]" onClick={handleNav}>    
+                        <Image
+                            src="/static/images/btn_gnb_close.png"
+                            alt="promotion_logo_hyundai"
+                            width={0}
+                            height={0}
+                            sizes='100vw'
+                            className='w-full h-auto hover:animate-dropDownButton'
+                        />
+                    </button>
                     {/* 검색창 */}
                     <div className="w-full h-[10vh] bg-[#2d2926] flex items-center justify-center">
 
@@ -90,7 +91,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                             // 두번째 서브 메뉴 */}
                                             {
                                                 dropdown_items.checked &&
-                                                <div className='text-white  bg-[#181818] w-full'>
+                                                <div className='text-white  bg-[#181818] w-full'  ref={liRef}>
                                                     <div className='flex flex-col mx-auto' id="mobile_inner_menu_box">
                                                         {dropdown_items.dropDownMenu?.map((menus, menus_idx: number) => (
                                                             <ul key={menus_idx}>

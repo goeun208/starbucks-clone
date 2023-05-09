@@ -1,9 +1,29 @@
 "use client";
+import { openMobileMenu } from "@/recoil/state";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+// import { useRecoilValue } from "recoil";
 
 const MainBanner = () => {
     const [bannerIdx, setBannerIdx] = useState<number>(2);
+    const mainRef:any = useRef<HTMLDivElement>();
+    const isOpenMenu = useState(false);
+
+    // useEffect(() => {
+    //     isOpenMenu && (
+    //         console.log('menu!! hahaha', isOpenMenu)
+    //     )
+    // }, [])
+
+    useEffect(() => {
+        !isOpenMenu  ? (
+            mainRef.current.style.transition = "left 1s ease-out",
+            mainRef.current.style.left = "-60vw"
+        ) : (
+            mainRef.current.style.transition = "left 1s ease-out",
+            mainRef.current.style.left = "0"
+        )
+    }, [])
 
     useEffect(() => {
         if(bannerIdx < 5) {
@@ -22,7 +42,7 @@ const MainBanner = () => {
     return (
         <>
             {/* 모바일 버전 */}
-            <div className="block md:hidden box-border z-10 w-full h-[262vw] relative bg-[url('/static/images/2023_m_spring2_promotion_bg.jpg')] bg-cover" id="m_spring_menu_wrap">
+            <div className="block md:hidden box-border z-10 w-full h-[262vw] relative bg-[url('/static/images/2023_m_spring2_promotion_bg.jpg')] bg-cover" id="m_spring_menu_wrap" ref={mainRef} style={{left:0}}>
                 <div className='absolute top-[6.5%] left-[14%] w-[43%]'>
                         <Image
                             src="https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_top_logo.png"

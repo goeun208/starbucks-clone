@@ -19,7 +19,7 @@ const ReserveMagazine = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <button type="button" className='absolute left-[30%] bottom-[8%] z-10 w-[25%] sm:w-[15%] border-2 border-black py-[9px] sm:py-[9px] rounded-[5px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
+                <button type="button" className='absolute left-[30%] bottom-[6%] z-10 w-[26%] sm:w-[15%] border-2 border-black py-[9px] sm:py-[9px] rounded-[5px] text-xs sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20'>자세히 보기</button>
             </div>
             {/* web */}
             <div className="hidden rm-md:block z-10 min-h-[17vw] relative overflow-hidden">

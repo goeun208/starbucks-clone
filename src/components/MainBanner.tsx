@@ -65,7 +65,7 @@ const MainBanner = () => {
                         className="w-full h-auto"
                     />
                 </div>
-                <button type="button" className='absolute bottom-[7%] left-[32%] pb-1 w-[36%] h-[4%] text-[#014938] font-semibold text-[1.3rem] border-2 border-[#014938] rounded-[5px] hover:animate-firstBanner hover:text-white hover:underline'>자세히 보기</button>
+                <button type="button" className='absolute bottom-[7%] left-[32%] pb-1 w-[36%] h-[4%] text-[#014938] font-semibold text-[1rem] xs:text-[1.3rem] border-2 border-[#014938] rounded-[5px] hover:animate-firstBanner hover:text-white hover:underline'>자세히 보기</button>
             </div>
             {/* 웹 버전 */}
             <div className="hidden md:block z-10 min-h-[31vw] relative bg-[url('/static/images/2023_spring2_promotion_bg_1.jpg')] bg-cover bg-top" id="w_spring_menu_wrap">

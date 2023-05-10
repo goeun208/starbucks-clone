@@ -8,7 +8,6 @@ import { openMobileMenu } from "@/recoil/state";
 const MobileHeader = () => {
     
         const [isOpen, setIsOpen] = useRecoilState<boolean>(openMobileMenu);
-        // const [isOpen, setIsOpen] = useState<boolean>(false);
         const ref:any =useRef<HTMLDivElement>(null);
         
         useEffect(() => {
@@ -36,7 +35,7 @@ const MobileHeader = () => {
                    
                     <nav className="absolute top-0 right-0">
                         <div className="absolute top-0 right-0 z-40" ref={ref}>
-                             <MobileMenu isOpen={isOpen} handleNav={handleNav} />
+                            { <MobileMenu isOpen={isOpen} handleNav={handleNav} />} 
                         </div>
                         <ul className="w-[120px] h-[60px] pt-[10px] flex justify-between items-center absolute top-0 right-5">
                             <li className="relative">

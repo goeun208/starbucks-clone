@@ -13,10 +13,9 @@ const ContentsContainer = ( {children}
 
     useEffect(() => {
         isOpenMenu  ? (
-            mainRef.current.style.transition = "left 0.7s ease-out",
+            mainRef.current.style.transition = "left 0.4s ease-out",
             mainRef.current.style.left = "-60vw"
         ) : (
-            mainRef.current.style.transition = "left 0.7s ease-out",
             mainRef.current.style.left = "0"
         )
     }, [isOpenMenu])

@@ -25,6 +25,10 @@ module.exports = {
         'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
+        navDropdown: {
+          '0%': {maxHeight: '0'},
+          '100%': {maxHeight: '120rem'},
+        },
         dropdown: {
           '0%': {maxHeight: '0'},
           '100%': {maxHeight: '30rem'},
@@ -51,6 +55,7 @@ module.exports = {
         },
       },
       animation: {
+        navDropdown: 'navDropdown 1.5s ease-in-out forwards',
         dropdown: 'dropdown 0.5s ease-in-out forwards',
         firstBanner: 'firstBanner 0.5s ease-out forwards',
         secondBanner: 'secondBanner 0.5s ease-out forwards',

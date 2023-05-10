@@ -7,6 +7,7 @@ import { MobileDropDownType } from "../../public/MobileDropdownData";
 const MobileMenu = ({ isOpen, handleNav }: any) => {
     const [data, setData] = useState<MobileDropDownType[]>(MobileDropdownData);
     const ref:any = useRef<HTMLElement>(null);
+    const bgRef:any = useRef<HTMLElement>(null);
     const liRef:any = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -15,11 +16,26 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
 
 
     useEffect(() => {
-        setTimeout(() => {
-            ref.current.style.transition = "right 0.7s ease-out",
-            ref.current.style.right = "0"
-        }, 100)
-
+        isOpen ? (
+            bgRef.current.style.display = "block",
+            setTimeout(() => {
+                ref.current.style.transition = "right 0.5s ease-out",
+                ref.current.style.right = "0"
+                
+            }, 100)
+        )
+        :
+        (
+            setTimeout(() => {
+                ref.current.style.transition = "right 0.5s ease-out",
+                ref.current.style.right = "-70vw"
+            }, 10),
+            setTimeout(() => {
+                bgRef.current.style.display = "none"
+            }, 600)    
+        )
+        
+      
     }, [isOpen])
 
     const handleMenuIdx = (title: string) => {
@@ -43,9 +59,9 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
     }
 
     return (
-        <div className="w-screen h-screen relative" style={{ width: 0 }}>
+        <div className="w-screen h-screen relative z-0" ref={bgRef}>
             {/* 뒤 투명 배경 */}
-            <div className="w-screen h-screen bg-black opacity-70 absolute" style={{opacity: 0.7, }}></div>
+            <div className="w-screen h-screen bg-black opacity-70 absolute" style={{opacity: 0.7, right: 0 }}></div>
             <div className="flex w-screen h-screen relative">
                 <div className="fixed w-[60vw] h-screen bg-[#111111] z-20" ref={ref} style={{ right: "-70%" }}>
                      {/* 엑스 박스 */}

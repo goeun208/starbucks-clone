@@ -1,6 +1,7 @@
-import RecoilR from '@/app/Recoil'
+import RecoilR from '@/app/RecoilR'
 import Header from '@/components/Header'
 import './globals.css'
+import ContentsContainer from '@/components/ContentsContainer'
 
 export const metadata = {
   title: 'Starbucks Korea',
@@ -15,10 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <RecoilR> */}
+        <RecoilR>
           <Header />
-          {children}
-        {/* </RecoilR> */}
+          <ContentsContainer>
+            {children}
+          </ContentsContainer>
+        </RecoilR>  
       </body>
     </html>
   )

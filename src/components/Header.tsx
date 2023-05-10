@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { DropdownData } from '../../public/DropdownData';
 import MobileHeader from './MobileHeader';
-export default function Header() {
+const Header = () => {
 
     return (
         <div className="z-20 w-full h-[70px] md:h-[7.5rem] md:border-t-2 md:border-black bg-[#f6f5ef] flex justify-center items-center fixed">
@@ -85,3 +85,5 @@ export default function Header() {
         </div>
     );
 }
+
+export default Header;

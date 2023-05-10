@@ -1,19 +1,24 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import MobileMenu from "./MobileMenu";
 import { openMobileMenu } from "@/recoil/state";
 
 const MobileHeader = () => {
     
-        // const [isOpen, setIsOpen] = useRecoilState<boolean>(openMobileMenu);
-        const [isOpen, setIsOpen] = useState<boolean>(false);
+        const [isOpen, setIsOpen] = useRecoilState<boolean>(openMobileMenu);
+        // const [isOpen, setIsOpen] = useState<boolean>(false);
+        const ref:any =useRef<HTMLDivElement>(null);
         
+        useEffect(() => {
+            console.log(isOpen, 'isOpen...')
+        }, [isOpen])
+
         const handleNav = () => {
             setIsOpen(!isOpen);
         }
-        
+
         return (
             <>
               <div className="md:hidden block w-full h-full flex items-center relative">
@@ -30,8 +35,8 @@ const MobileHeader = () => {
                     {/* 네비게이션 바 */}
                    
                     <nav className="absolute top-0 right-0">
-                        <div className="absolute top-0 right-0 z-40">
-                            {isOpen && <MobileMenu isOpen={isOpen} handleNav={handleNav} />}
+                        <div className="absolute top-0 right-0 z-40" ref={ref}>
+                             <MobileMenu isOpen={isOpen} handleNav={handleNav} />
                         </div>
                         <ul className="w-[120px] h-[60px] pt-[10px] flex justify-between items-center absolute top-0 right-5">
                             <li className="relative">

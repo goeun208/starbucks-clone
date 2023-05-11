@@ -52,9 +52,9 @@ const NoticeBar = () => {
         <div className="w-full">
             {/* 공지사항 */}
             <div className="w-full relative sm:flex">
-                <div className="z-10 xs:pl-4 sm:w-[50%] lg:w-[53%] h-[110px] sm:h-[80px] bg-[#111] flex sm:justify-center relative">
+                <div className="z-10 xs:pl-4 sm:w-[50%] lg:w-[52%] h-[110px] sm:h-[80px] bg-[#111] flex sm:justify-center relative">
                     <div className="text-white flex justify-start items-center">
-                        <span className="block sm:hidden w-9 h-9 relative mx-5">
+                        <span className="block sm:hidden w-9 h-9 relative mx-2">
                             <Image
                                 src="/static/images/icon_board_speaker.png"
                                 alt="notice_btn"
@@ -62,14 +62,14 @@ const NoticeBar = () => {
                             />
                         </span>
                         <span className="hidden sm:block w-[10vw] text-center ml-2 font-semibold inline-block">공지사항</span>
-                        <ul className="w-[150px] xxs:w-[250px] xs:w-[330px] sm:w-[180px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
+                        <ul className="w-[150px] xxs:w-[250px] xs:w-[350px] sm:w-[240px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] overflow-hidden text-sm mr-12 cursor-pointer relative" id="notice_wrap">
                             {
                                 noticeList.map((notice, noticeIdx) => {
                                     const { label } = notice;
                                     return (
                                         <li
                                             key={label}
-                                            className="w-[80%] w-[350px] text-lg sm:text-sm sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] text-white absolute hover:underline bg-[#111]"
+                                            className="w-[100%] w-[350px] text-lg sm:text-sm sm:w-[200px] md:w-[250px] semi-lg:w-[350px] h-[26px] sm:h-[20px] text-white absolute hover:underline bg-[#111]"
                                             style={{
                                                 zIndex: noticeIdx === currentNoticeIdx ? 10 : 1,
                                             }}

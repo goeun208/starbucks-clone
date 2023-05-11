@@ -6,12 +6,12 @@ import { MobileDropDownType } from "../../public/MobileDropdownData";
 
 const MobileMenu = ({ isOpen, handleNav }: any) => {
     const [data, setData] = useState<MobileDropDownType[]>(MobileDropdownData);
-    const ref:any = useRef<HTMLElement>(null);
-    const containerRef:any = useRef<HTMLElement>(null);
-    const btnRef:any = useRef<HTMLElement>(null);
-    const backRef:any = useRef<HTMLElement>(null);
-    const firstMenuRef:any = useRef<HTMLElement>(null);
-    const secondMenuRef:any = useRef<HTMLElement>(null);
+    const ref:any = useRef<HTMLDivElement>(null);
+    const containerRef:any = useRef<HTMLDivElement>(null);
+    const btnRef:any = useRef<HTMLDivElement>(null);
+    const backRef:any = useRef<HTMLDivElement>(null);
+    const firstMenuRef:any = useRef<HTMLDivElement>(null);
+    const secondMenuRef:any = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setData(MobileDropdownData);
@@ -71,7 +71,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
             <div className="flex w-[60vw] h-screen relative">
                 <div className="fixed w-[60vw] h-screen bg-[#111111] z-20 overflow-auto" ref={ref} style={{ right: "-80vw" }}>
                     {/* 엑스 박스 */}
-                    <button type="button" className="w-7 h-7 fixed top-12 z-30" onClick={handleNav} ref={btnRef}> 
+                    <button type="button" className="w-7 h-7 fixed top-10 left-[30%] z-30" onClick={handleNav} ref={btnRef}> 
                         <Image
                             src="/static/images/btn_gnb_close.png"
                             alt="promotion_logo_hyundai"

@@ -12,6 +12,72 @@ export interface MobileDropDownType {
 
 export const MobileDropdownData : MobileDropDownType[] = [
     {
+        title: "My Starbucks",
+        checked: false,
+        dropDownMenu: [
+                {   
+                    subTitle: "한눈에 보기",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {
+                    subTitle: "My 리워드",
+                    subChecked: false,
+                    subMenu: ["리워드 및 혜택", "별 히스토리"],
+                },
+                {
+                    subTitle: "My 스타벅스 카드",
+                    subChecked: false,
+                    subMenu: ["보유 카드", "카드 등록", "카드 충전", "분실신고/잔액이전"],
+                },
+                {
+                    subTitle: "My 스타벅스 e-Gift Card",
+                    subChecked: false,
+                    subMenu: ["선물하기", "선물 내역", "장바구니 내역"],
+                },
+                {
+                    subTitle: "My 쿠폰",
+                    subChecked: false,
+                    subMenu: ["등록하기", "선물하기", "사용하기"],
+                },
+                {   
+                    subTitle: "My 캘린더",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {   
+                    subTitle: "My 메뉴",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {   
+                    subTitle: "My 고객의 소리",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {   
+                    subTitle: "전자영수증",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {   
+                    subTitle: "개인컵 리워드 설정",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {   
+                    subTitle: "My DT Pass",
+                    subChecked: false,
+                    subMenu: null
+                },
+                {
+                    subTitle: "개인정보관리",
+                    subChecked: false,
+                    subMenu: ["개인정보확인 및 수정", "회원 탈퇴", "비밀번호 변경"],
+                },
+            ]
+    },
+    {
         title: "COFFEE",
         checked: false,
         dropDownMenu: [

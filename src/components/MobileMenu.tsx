@@ -10,6 +10,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
     const containerRef:any = useRef<HTMLDivElement>(null);
     const btnRef:any = useRef<HTMLDivElement>(null);
     const backRef:any = useRef<HTMLDivElement>(null);
+    const titleRef:any = useRef<HTMLElement>
     const firstMenuRef:any = useRef<HTMLDivElement>(null);
     const secondMenuRef:any = useRef<HTMLDivElement>(null);
 
@@ -27,14 +28,10 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
             setTimeout(() => {
                 ref.current.style.transition = "right 0.3s ease-out"
                 ref.current.style.right = "0"
-                btnRef.current.style.transition = "left 0.3s ease-out"
-                btnRef.current.style.left = "11rem"
             }, 50)  
         )  
         :
         (
-            btnRef.current.style.transition = "left 0.3s ease-out",
-            btnRef.current.style.left = "110vw",
             ref.current.style.transition = "right 0.3s ease-out",
             ref.current.style.right = "-90vw",
             backRef.current.style.right = "-110vw",
@@ -68,10 +65,10 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
         <div className="w-screen h-screen relative z-0" style={{width: 0}}  ref={containerRef}>
             {/* 뒤 투명 배경 */}
             <div className="w-screen h-screen bg-black opacity-70 absolute" style={{opacity: 0.7, right: "-100vw" }}  ref={backRef}></div>
-            <div className="flex w-[60vw] h-screen relative">
-                <div className="fixed w-[60vw] h-screen bg-[#111111] z-20 overflow-auto" ref={ref} style={{ right: "-80vw" }}>
+            <div className="flex w-[63vw] h-screen relative">
+                <div className="fixed w-[70vw] h-screen bg-[#111111] z-20 overflow-auto" ref={ref} style={{ right: "-80vw" }}>
                     {/* 엑스 박스 */}
-                    <button type="button" className="w-7 h-7 fixed top-10 left-[30%] z-30" onClick={handleNav} ref={btnRef}> 
+                    <button type="button" className="w-5 xxs:w-7 w-5 xxs:h-7 fixed top-6 xxs:top-10 left-[19%] xxs:left-[22%] z-30" onClick={handleNav} ref={btnRef}> 
                         <Image
                             src="/static/images/btn_gnb_close.png"
                             alt="promotion_logo_hyundai"
@@ -82,9 +79,9 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                         />
                     </button>
                     {/* 검색창 */}
-                    <div className="w-full h-[10vh] bg-[#2d2926] flex items-center justify-center">
-                        <input type="text" className="w-[60%] h-[50px] bg-white pl-2 rounded-[3px]" />
-                        <div className="ml-3 w-[25%] h-[50px] bg-[#666] rounded-[3px] flex items-center justify-center text-white text-[1rem] sm:text-[1.5rem] font-medium">Search</div>
+                    <div className="w-full h-[10vh] bg-[#2d2926] border-b border-[#333] flex items-center justify-center">
+                        <input type="text" className="w-[60%] h-[30px] xxs:h-[50px] bg-white pl-2 rounded-[3px]" />
+                        <div className="ml-3 w-[25%] h-[30px] xxs:h-[50px] bg-[#666] rounded-[3px] flex items-center justify-center text-white text-[0.75rem] xxs:text-[1rem] sm:text-[1.5rem] font-medium">Search</div>
                     </div>
                     {/* 네비 바 */}
                     <nav className='text-xl bg-[#111] oveflow-scroll'>
@@ -94,10 +91,8 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                 {
                                     data.map((dropdown_items: MobileDropDownType, first_index: number) => (
                                         <li key={first_index} className='group/gnb'> {/* 첫번째 메뉴 */}
-                                            <div className="flex justify-between items-center border-b border-[#333] px-[1rem] sm:px-[2.2rem]" onClick={() => handleMenuIdx(dropdown_items.title)} ref={firstMenuRef}>
-
-                                                <p className='hover:underline h-[5rem] text-sm xs:text-lg sm:text-[1.75rem] flex items-center font-medium text-white'>{dropdown_items.title}</p>
-
+                                            <div className="flex justify-between items-center border-b border-[#333] px-[1rem] sm:px-[1.5rem]" style={{backgroundColor: first_index === 0 ? '#2d2926' : '#111111'}} onClick={() => handleMenuIdx(dropdown_items.title)} ref={firstMenuRef}>
+                                                <p className='h-[50px] xxs:h-[4.8rem] text-sm xs:text-lg sm:text-[1.75rem] flex items-center font-medium text-white'>{dropdown_items.title}</p>
                                                 {
                                                     dropdown_items.checked ? // 체크 여부 판별하기
                                                         (
@@ -116,7 +111,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                                     <div className='flex flex-col mx-auto overflow-y-hidden animate-navDropdown' id="mobile_inner_menu_box">
                                                         {dropdown_items.dropDownMenu?.map((menus, menus_idx: number) => (
                                                             <ul key={menus_idx}>
-                                                                <div className="flex text-sm xs:text-lg sm:text-[1.5rem] text-white px-[1rem] sm:px-[2.2rem] pr-[1rem] py-5 justify-between items-center" onClick={() => handleInnerMenuIdx(dropdown_items.title, menus.subTitle)} ref={secondMenuRef}>
+                                                                <div className="flex text-sm xs:text-lg sm:text-[1.5rem] text-white border-b border-[#222] px-[1rem] sm:px-[2.2rem] py-2 xxs:py-5 justify-between items-center" onClick={() => handleInnerMenuIdx(dropdown_items.title, menus.subTitle)} ref={secondMenuRef}>
                                                                     <span className="hover:underline">{menus.subTitle}</span>
                                                                     {
                                                                         menus.subMenu !== null ? ( // subMenu가 있는 것만 나타나게 하기 // 접혔다 펼쳤다 T/F로 구분
@@ -134,7 +129,7 @@ const MobileMenu = ({ isOpen, handleNav }: any) => {
                                                                 {
                                                                     menus.subChecked &&
                                                                     menus.subMenu !== null && menus.subMenu.map((subMenus: any, sub_idx: number) => (
-                                                                        <li key={sub_idx} className="bg-[#222] px-[1rem] sm:px-[3rem] py-3 text-base text-[#999]  overflow-hidden animate-navDropdown">{subMenus}</li>
+                                                                        <li key={sub_idx} className="bg-[#222] px-[1rem] sm:px-[3rem] py-1 sm:py-3 text-base text-[#999]  overflow-hidden animate-navDropdown">{subMenus}</li>
                                                                     ))
                                                                 }    
                                                                 </div>

@@ -54,7 +54,7 @@ const FavoriteMenuBox = () => {
                 </div>
             </div>
             {/* web */}
-            <div className="hidden md:block w-full min-h-[17vw] flex justify-center bg-[url('/static/images/2023_spring2_pick_bg.jpg')] bg-cover bg-top bg-fixed">
+            <div className="hidden md:block w-full min-h-[17vw] flex justify-center bg-[url('/static/images/2023_spring2_pick_bg.jpg')] bg-cover bg-top bg-fixed overflow-hidden">
                 <div className="w-[70%] min-h-[50rem] relative mx-auto">
                     <div className='hidden md:block w-[22rem] relative'>
                         {/* PICK YOUR FAVORITE */}

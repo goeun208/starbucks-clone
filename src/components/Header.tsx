@@ -53,7 +53,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <nav className='hidden md:block absolute w-full top-[3.8rem] h-[7.5rem] text-sm z-20'>
+            <nav className='hidden md:block absolute w-full top-[3.8rem] h-[2.5rem] text-sm z-20'>
                 <div className='lg:w-[1100px] w-[1000px] mx-auto my-0'>
                     <ul className="flex justify-end cursor-pointer font-normal">
                         {DropdownData.map((dropdown, index: number) => (

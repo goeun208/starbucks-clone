@@ -67,7 +67,7 @@ const RewardsBox = () => {
                     <div className="text-white w-[793px] flex flex-col">
                         <div className=" border-b border- mb-[22px] relative">
                             <div className="text-[26px]">스타벅스만의 특별한 혜택,
-                                <span className="font-semibold">스타벅스 리워드</span>
+                                <span className="font-semibold"> 스타벅스 리워드</span>
                             </div>
                             <div>
                                 <div className="flex relative my-[12px]">

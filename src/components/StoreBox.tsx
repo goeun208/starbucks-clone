@@ -103,7 +103,7 @@ const StoreBox = () => {
                     />
                 </div>
                 <button type="button" className='block md:hidden absolute right-[40.5%] bottom-[5%] xxs:bottom-[8%] w-[21%] border-2 border-black py-[1.5%] rounded-[3px] text-xs xxs:text-[0.75rem] sm:text-[15px] hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...mAnimatedBtnItem}>매장 찾기</button>
-                <button type="button" className='hidden md:block absolute right-[40%] bottom-[17%] w-[5%] border-2 border-black py-[9px] rounded-[3px] semi-lg:text-xs xl:text-sm hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...animatedBtnItem}>매장 찾기</button>
+                <button type="button" className='hidden md:block absolute right-[39%] bottom-[15%] w-[6%] border-2 border-black py-2 rounded-[3px] text-xs xl:text-sm hover:animate-blackButton hover:text-white hover:underline cursor-pointer z-20' {...animatedBtnItem}>매장 찾기</button>
             </div>
 
         </div>

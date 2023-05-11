@@ -51,8 +51,8 @@ const PromotionSlider = ({ isOpen }: any) => {
 
     const [slideIndex, setSlideIndex] = useState(3);
     const [custominterval, setCustomInterval] = useState(3000);
-    const outRef = useRef<HTMLDivElement>(null);
-    const slideRef = useRef<HTMLDivElement>(null);
+    const slideRef = useRef<HTMLImageElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     const SLIDE_NUM = slideArr.length;
     const beforeSlide = slideArr[SLIDE_NUM - 1];
@@ -61,10 +61,8 @@ const PromotionSlider = ({ isOpen }: any) => {
     let copiedArr = [beforeSlide, ...slideArr, afterSlide];
     const COPIED_NUM = copiedArr.length;
 
-
     const handleSlideIdx = (slideidx: number) => {
         setSlideIndex((currentSlide) => (currentSlide + slideidx))
-
     }
 
     useInterval(
@@ -74,10 +72,20 @@ const PromotionSlider = ({ isOpen }: any) => {
 
     useEffect(() => {
         const promotion = document.querySelector("#promotion_container") as HTMLElement;
-        isOpen ? (promotion.style.height = "650px",
-            promotion.style.transition = "all 0.6s ease-out")
-            : (promotion.style.height = "0px",
-                promotion.style.transition = "all 0.6s ease-out");
+        isOpen && ( window.innerWidth > 960 ? promotion.style.height = "650px" : promotion.style.height = "500px" )
+    })
+
+    useEffect(() => {
+        const promotion = document.querySelector("#promotion_container") as HTMLElement;
+        isOpen ? 
+            (
+                promotion.style.transition = "all 0.6s ease-out"
+            )
+            : 
+            ( 
+                promotion.style.height = "0px",
+                promotion.style.transition = "all 0.6s ease-out"
+            );
     }, [isOpen])
 
     useEffect(() => {
@@ -85,130 +93,149 @@ const PromotionSlider = ({ isOpen }: any) => {
             if (slideRef.current) {
                 slideRef.current.style.transition = "";
             }
-
             setSlideIndex(1);
-
-            setTimeout(() => {
-                if (slideRef.current) {
-                    slideRef.current.style.transition = "all 0.5s ease-in-out"
-                } 
-            }, 0);
-        }
-        if (slideIndex === -1) { // 왼쪽 마지막 슬라이드
-            if (slideRef.current) {
-                slideRef.current.style.transition = "";
-            }
-
-            setSlideIndex(3);
-
             setTimeout(() => {
                 if (slideRef.current) {
                     slideRef.current.style.transition = "all 0.5s ease-in-out"
                 }
             }, 0);
         }
+
+        if (slideIndex === -1) { // 왼쪽 마지막 슬라이드
+            if (slideRef.current) {
+                slideRef.current.style.transition = "";
+            }
+            setSlideIndex(3);
+            setTimeout(() => {
+                if (slideRef.current) {
+                    slideRef.current.style.transition = "all 0.5s ease-in-out"
+                }
+            }, 0);
+        }
+
     }, [slideIndex]);
 
     return (
-        <div className="overflow-hidden relative bg-[#f6f5ef] flex justify-center" id="promotion_container" style={{ height: 0 }}>
-                        {/* 스와이퍼 */}
-            <div className='w-[1040px] mx-auto pt-5'>
-            <div
-                className="flex h-[90%] ml-[11%]"
-                ref={slideRef}
-                style={{
-                    width: `${819 * COPIED_NUM}px`,
-                    transition: "all 0.5s ease-in-out",
-                    transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
-                        }%)`,
-                }}
-            >
-                {copiedArr.map((item, index) => (
-                    <div key={index} className="w-[819px] mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
-                        <Image
-                            src={item.img}
-                            alt="로고"
-                            width={0}
-                            height={0}
-                            sizes='100vw'
-                            className='w-full h-auto'
-                        />
-                        <button type="button" className='w-[121px] absolute bottom-10 left-[42.5%] text-black border-2 border-black py-2 rounded-[3px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20' >자세히 보기</button>
+        <div className="overflow-hidden bg-[#f6f5ef] flex justify-center" id="promotion_container">
+            <div className='w-[38.75rem] md:w-[250rem]  mx-auto overflow-hidden relative'>
+                 {/* 모바일 -사진 */}
+                 <div className="absolute top-0 left-[50%] md:left-[50%] flex h-[90%]" style={{ width: `${38.75 * COPIED_NUM}rem`, transform: `translateX(-50%)` }}>   
+                    <div className="md:hidden absolute top-0 left-[40%] flex h-[95%] pt-8"
+                        ref={slideRef}
+                        style={{
+                            width: `${38.75 * COPIED_NUM}rem`,
+                            transition: "all 0.5s ease-in-out",
+                            transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
+                                }%)`,
+                        }}
+                    >
+                        {copiedArr.map((item, index) => (
+                            <div key={index} className="w-[40rem] md:w-[55rem] mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
+                                <Image ref={imgRef}
+                                    src={item.img}
+                                    alt="로고"
+                                    width={0}
+                                    height={0}
+                                    sizes='100vw'
+                                    className='w-full h-auto'
+                                />
+                                <button type="button" className='w-[121px] absolute bottom-[-10px] left-[40.5%] text-black border-2 border-black py-2 rounded-[3px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20' >자세히 보기</button>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
-            {/* 버튼 - 가운데 위치 */}
-            <div className='w-[1058px] mx-auto z-10 absolute top-0'>
-                <div className='relative h-[650px] flex justify-between items-center mx-auto'>
-                    {/* 이전 버튼 */}
-                    <button type="button"
-                        className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center' onClick={() => handleSlideIdx(-1)}>
-                        <Image
-                            src="/static/images/arrow_left_on.png"
-                            alt="이전"
-                            width={15}
-                            height={26}
-                        />
-                    </button>
-                    {/* 다음 버튼 */}
-                    <button type="button"
-                        className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center ' onClick={() => handleSlideIdx(1)}>
-                        <Image
-                            src="/static/images/arrow_right_on.png"
-                            alt="다음"
-                            width={15}
-                            height={26}
-                        />
-                    </button>
-                </div>    
-                {/* 밑 버튼 박스 */}
-                <div className='w-[100%] mt-4 mb-7 flex justify-center justify-center absolute bottom-0'>
-                    <button type="button"
-                        className='z-10 flex justify-center items-center mr-3'>
-                        <Image
-                            src="/static/images/main_prom_stop.png"
-                            alt="to first index"
-                            width={9}
-                            height={12}
-                        />
-                    </button>
-                    <button type="button"
-                        className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(1)}>
-                        <Image
-                            src={slideIndex === 1 || slideIndex === 4 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
-                            alt="to second index"
-                            width={13}
-                            height={14}
-                        />
-                    </button>
-                    <button type="button"
-                        className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(2)}>
-                        <Image
-                            src={slideIndex === 2 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
-                            alt="다음"
-                            width={13}
-                            height={14}
-                        />
-                    </button>
-                    <button type="button"
-                        className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(3)}>
-                        <Image
-                            src={slideIndex === 3 || slideIndex === 0 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
-                            alt="다음"
-                            width={13}
-                            height={14}
-                        />
-                    </button>
+                </div>
+                {/* 웹 - 사진 */}
+                <div className="hidden md:block absolute top-0 md:left-[50%] flex h-[90%]" style={{ width: `${51 * COPIED_NUM}rem`, transform: `translateX(-50%)` }}>
+                    <div className="absolute top-0 left-[40%] flex h-[95%] pt-5"
+                        ref={slideRef}
+                        style={{
+                            width: `${51 * COPIED_NUM}rem`,
+                            transition: "all 0.5s ease-in-out",
+                            transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
+                                }%)`,
+                        }}
+                    >
+                        {copiedArr.map((item, index) => (
+                            <div key={index} className="w-[31.25rem] sm:w-[40rem] md:w-[55rem] mx-2 relative" style={{ opacity: slideIndex === index ? 1 : 0.5 }}>
+                                <Image
+                                    
+                                    src={item.img}
+                                    alt="로고"
+                                    width={0}
+                                    height={0}
+                                    sizes='100vw'
+                                    className='w-full h-auto'
+                                />
+                                <button type="button" className='w-[121px] absolute bottom-[-10px] md:bottom-2 left-[40.5%] md:left-[42.5%] text-black border-2 border-black py-2 rounded-[3px] text-sm hover:animate-whiteButton hover:text-black hover:underline cursor-pointer z-20' >자세히 보기</button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                {/* 버튼 - 가운데 위치 */}
+                <div className='absolute top-0 left-[50%] ' style={{ transform: 'translate(-50%, 0)' }}>
+                    <div className='w-[35.5rem] md:w-[60rem] h-[460px] md:h-[600px] mx-auto mt-4 mb-7 flex justify-between items-end pb-[20%] md:pb-0 md:items-center'>
+                        {/* 이전 버튼 */}
+                        <button type="button"
+                            className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center' onClick={() => handleSlideIdx(-1)}>
+                            <Image
+                                src="/static/images/arrow_left_on.png"
+                                alt="이전"
+                                width={15}
+                                height={26}
+                            />
+                        </button>
+                        {/* 다음 버튼 */}
+                        <button type="button"
+                            className='active:bg-white z-10 w-[51px] h-[51px] rounded-[27.5px] border-2 border-[#222] flex justify-center items-center ' onClick={() => handleSlideIdx(1)}>
+                            <Image
+                                src="/static/images/arrow_right_on.png"
+                                alt="다음"
+                                width={15}
+                                height={26}
+                            />
+                        </button>
+                    </div>
+                    {/* 밑 버튼 박스 */}
+                    <div className='mt-4 mb-7 flex justify-center absolute bottom-0 left-[250px] md:left-[450px]'>
+                        <button type="button"
+                            className='z-10 flex justify-center items-center mr-3'>
+                            <Image
+                                src="/static/images/main_prom_stop.png"
+                                alt="to first index"
+                                width={9}
+                                height={12}
+                            />
+                        </button>
+                        <button type="button"
+                            className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(1)}>
+                            <Image
+                                src={slideIndex === 1 || slideIndex === 4 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
+                                alt="to second index"
+                                width={13}
+                                height={14}
+                            />
+                        </button>
+                        <button type="button"
+                            className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(2)}>
+                            <Image
+                                src={slideIndex === 2 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
+                                alt="다음"
+                                width={13}
+                                height={14}
+                            />
+                        </button>
+                        <button type="button"
+                            className='z-10 flex justify-center items-center mr-2' onClick={() => setSlideIndex(3)}>
+                            <Image
+                                src={slideIndex === 3 || slideIndex === 0 ? "/static/images/main_prom_on.png" : "/static/images/main_prom_off.png"}
+                                alt="다음"
+                                width={13}
+                                height={14}
+                            />
+                        </button>
+                    </div>
                 </div>
             </div>
-            </div>
-            
-
-
-
-
-
-
         </div>
     );
 }

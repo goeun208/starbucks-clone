@@ -11,7 +11,7 @@ export interface MobileDropDownType {
     dropDownMenu?: MobileMenuType[];
 }
 
-export const MobileDropdownData: MobileDropDownType[] = [
+export const MobileDropdownData = [
     {
         title: "COFFEE",
         checked: false,

@@ -74,7 +74,7 @@ const PromotionSlider = ({ isOpen }: any) => {
 
     useEffect(() => {
         const promotion = document.querySelector("#promotion_container") as HTMLElement;
-        isOpen && ( window.innerWidth > 960 ? promotion.style.height = "650px" : promotion.style.height = "500px" )
+        isOpen && ( typeof window !== 'undefined' && (window.innerWidth > 960 ? promotion.style.height = "650px" : promotion.style.height = "500px"))
     })
 
     useEffect(() => {
@@ -120,12 +120,12 @@ const PromotionSlider = ({ isOpen }: any) => {
         <div className="overflow-hidden bg-[#f6f5ef] flex justify-center" id="promotion_container">
             <div className='w-[48.75rem] md:w-[250rem]  mx-auto overflow-hidden relative'>
                 <div className="absolute top-0 left-[50%] flex h-[90%]" style={{ 
-                    width: window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
+                    width: typeof window !== 'undefined' && window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
                     , transform: `translateX(-50%)` }}>
                     <div className="absolute top-0 left-[52%] sm:left-[42.9%] flex h-[95%] pt-5"
                         ref={slideRef}
                         style={{
-                            width: window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`,
+                            width: typeof window !== 'undefined' && window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`,
                             transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
                                 }%)`,
                         }}

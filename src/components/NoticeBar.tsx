@@ -3,6 +3,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { clearInterval, setInterval } from "timers";
 import PromotionSlider from "./PromotionSlider";
+import dynamic from 'next/dynamic'
+
+const DynamicComponent = dynamic(() => import('./PromotionSlider'), {
+  ssr: false,
+})
 
 const NoticeBar = () => {
 
@@ -123,7 +128,7 @@ const NoticeBar = () => {
 
             </div>
 
-            <PromotionSlider isOpen={isOpen} />
+            <DynamicComponent isOpen={isOpen} />
 
 
 

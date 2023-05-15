@@ -93,7 +93,7 @@ const PromotionSlider = ({ isOpen }: any) => {
                     slideRef.current.style.transition = "";
                     setSlideIndex(2);
                 }
-            });
+            }, 0);
             setTimeout(() => {
                 if (slideRef.current) {
                     slideRef.current.style.transition = "all 0.5s ease-in-out"
@@ -101,10 +101,12 @@ const PromotionSlider = ({ isOpen }: any) => {
             }, 100);
         }
         else if (slideIndex < 1) { // 왼쪽 마지막 슬라이드
-            if (slideRef.current) {
-                slideRef.current.style.transition = "";
-                setSlideIndex(4);
-            }
+            setTimeout(() => {
+                if (slideRef.current) {
+                    slideRef.current.style.transition = "";
+                    setSlideIndex(4);
+                }
+            }, 0);
             setTimeout(() => {
                 if (slideRef.current) {
                     slideRef.current.style.transition = "all 0.5s ease-in-out"

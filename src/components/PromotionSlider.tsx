@@ -53,12 +53,14 @@ const PromotionSlider = ({ isOpen }: any) => {
     const [custominterval, setCustomInterval] = useState(3000);
     const slideRef = useRef<HTMLImageElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
+    
 
     const SLIDE_NUM = slideArr.length;
     const beforeSlide = slideArr[SLIDE_NUM - 1];
     const beforeSlide2 = slideArr[SLIDE_NUM - 2];
     const afterSlide = slideArr[0];
     const afterSlide2 = slideArr[1];
+    let innerWidth = null;
 
     let copiedArr = [beforeSlide2, beforeSlide, ...slideArr, afterSlide, afterSlide2];
     const COPIED_NUM = copiedArr.length;
@@ -78,6 +80,12 @@ const PromotionSlider = ({ isOpen }: any) => {
             isOpen && ( window.innerWidth > 960 ? promotion.style.height = "650px" : promotion.style.height = "500px")
         }
     })
+
+    useEffect(() => {
+        if(typeof window !== 'undefined') {
+            innerWidth = window.innerWidth;
+        }
+    }, [])
 
     useEffect(() => {
         const promotion = document.querySelector("#promotion_container") as HTMLElement;
@@ -122,12 +130,12 @@ const PromotionSlider = ({ isOpen }: any) => {
         <div className="overflow-hidden bg-[#f6f5ef] flex justify-center" id="promotion_container">
             <div className='w-[48.75rem] md:w-[250rem]  mx-auto overflow-hidden relative'>
                 <div className="absolute top-0 left-[50%] flex h-[90%]" style={{ 
-                    width: window && window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
+                    width: innerWidth && innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
                     , transform: `translateX(-50%)` }}>
                     <div className="absolute top-0 left-[52%] sm:left-[42.9%] flex h-[95%] pt-5"
                         ref={slideRef}
                         style={{
-                            width: window && window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`,
+                            width: innerWidth && innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`,
                             transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
                                 }%)`,
                         }}

@@ -60,7 +60,6 @@ const PromotionSlider = ({ isOpen }: any) => {
     const beforeSlide2 = slideArr[SLIDE_NUM - 2];
     const afterSlide = slideArr[0];
     const afterSlide2 = slideArr[1];
-    let innerWidth;
 
     let copiedArr = [beforeSlide2, beforeSlide, ...slideArr, afterSlide, afterSlide2];
     const COPIED_NUM = copiedArr.length;
@@ -127,12 +126,12 @@ const PromotionSlider = ({ isOpen }: any) => {
             <div className='w-[48.75rem] md:w-[250rem]  mx-auto overflow-hidden relative'>
                 <div className="absolute top-0 left-[50%] flex h-[90%]" style={{ 
                     width: window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
-                    , transform: `translateX(-50%)` }}>
+                    , transform: window.innerWidth > 720 ? `translateX(-50%)` : `translateX(-59%)` }}>
                     <div className="absolute top-0 left-[52%] sm:left-[42.9%] flex h-[95%] pt-5"
                         ref={slideRef}
                         style={{
-                            width: window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`,
-                            transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
+                            width: window.innerWidth > 960 ? `${51 * COPIED_NUM}rem` : `${38.75 * COPIED_NUM}rem`
+                            , transform: `translateX(${-1 * ((100 / COPIED_NUM) * slideIndex)
                                 }%)`,
                         }}
                     >
